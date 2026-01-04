@@ -77,7 +77,9 @@ header{
 
 /* ================= HERO ================= */
 .hero{
-  padding:80px 6% 65px;
+  /* CHANGED: Reduced top padding from 80px to 40px (Gap between Header and Title) */
+  /* CHANGED: Reduced bottom padding from 65px to 30px (Gap between Hero and Reviews) */
+  padding:40px 6% 30px;
   display:grid;
   grid-template-columns:1fr 0.9fr;
   gap:80px;
@@ -159,12 +161,14 @@ header{
 
 /* ================= REVIEWS ================= */
 .reviews-wrap{
-  padding:80px 6% 10px;
+  /* CHANGED: Reduced top padding from 80px to 40px (Gap between Hero/Product and Review Title) */
+  padding:40px 6% 10px;
   text-align:center;
 }
 
 .reviews{
-  padding:30px 6% 70px;
+  /* CHANGED: Reduced bottom padding from 70px to 20px (Gap between Review cards and Furkan/Creator) */
+  padding:30px 6% 20px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:24px;
@@ -184,7 +188,8 @@ header{
 
 /* ================= CREATOR + UPCOMING ================= */
 .creator-card{
-  margin:110px auto;
+  /* CHANGED: Reduced top margin from 110px to 50px (Closer to the reviews) */
+  margin:50px auto 110px;
   max-width:640px;
   padding:65px 45px;
   text-align:center;
