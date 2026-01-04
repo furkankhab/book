@@ -34,14 +34,15 @@ header{
   z-index:200;
 }
 
+/* ATTRACTIVE LOGO */
 .logo{
-  font-size:24px;
+  font-size:26px;
   font-weight:700;
-  letter-spacing:0.8px;
-}
-
-.logo .ai{
-  color:#7cf3ff;
+  letter-spacing:1px;
+  background:linear-gradient(90deg,#7cf3ff,#9d8cff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 25px rgba(124,243,255,0.35);
 }
 
 /* MENU */
@@ -111,9 +112,7 @@ header{
   font-weight:600;
 }
 
-.price span{
-  color:#7cf3ff;
-}
+.price span{ color:#7cf3ff; }
 
 .actions{
   margin-top:22px;
@@ -123,7 +122,7 @@ header{
 
 .btn{
   padding:13px 30px;
-  border-radius:8px;
+  border-radius:10px;
   text-decoration:none;
   font-weight:600;
   font-size:14px;
@@ -143,9 +142,10 @@ header{
 .product{
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.14);
-  border-radius:18px;
-  padding:32px;
+  border-radius:20px;
+  padding:34px;
   text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,0.6);
 }
 
 .product img{
@@ -171,7 +171,7 @@ header{
 
 .reviews-wrap h2{
   font-size:30px;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
 .reviews-wrap p{
@@ -189,12 +189,17 @@ header{
 .review{
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.12);
-  border-radius:14px;
+  border-radius:16px;
   padding:22px;
 }
 
-.review h4{
+.review .stars{
+  color:#f5c542; /* ⭐ yellow stars */
   margin-bottom:8px;
+}
+
+.review h4{
+  margin-bottom:6px;
 }
 
 .review p{
@@ -203,33 +208,58 @@ header{
   line-height:1.6;
 }
 
-/* ================= AUTHOR ================= */
+/* ================= AUTHOR SECTION ================= */
 .author{
-  padding:60px 6%;
+  padding:80px 6%;
   text-align:center;
+  background:rgba(255,255,255,0.02);
+}
+
+.author-card{
+  max-width:420px;
+  margin:auto;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:22px;
+  padding:36px;
+  box-shadow:0 30px 90px rgba(0,0,0,0.65);
+}
+
+.author-photo{
+  width:130px;
+  height:130px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  padding:5px;
+  background:linear-gradient(135deg,#7cf3ff,#9d8cff);
+}
+
+.author-photo img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
 }
 
 .author h2{
-  font-size:32px;
-  font-weight:700;
-  letter-spacing:0.6px;
+  font-size:28px;
+  margin-bottom:6px;
 }
 
 .author p{
+  opacity:0.75;
   font-size:15px;
-  margin-top:6px;
-  opacity:0.7;
 }
 
 /* ================= UPCOMING ================= */
 .upcoming{
-  padding:50px 6%;
+  padding:60px 6%;
   text-align:center;
 }
 
 .upcoming h2{
   font-size:30px;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .upcoming p{
@@ -247,27 +277,10 @@ footer{
   font-size:13px;
 }
 
-footer h4{
-  margin-bottom:10px;
-}
-
-footer a{
-  display:block;
-  color:#ffffff;
-  text-decoration:none;
-  opacity:0.7;
-  margin:6px 0;
-}
-
-footer a:hover{
-  opacity:1;
-}
-
 .copy{
   text-align:center;
   opacity:0.5;
   grid-column:1/-1;
-  margin-top:20px;
 }
 
 /* ================= MOBILE ================= */
@@ -286,7 +299,7 @@ footer a:hover{
 <body>
 
 <header>
-  <div class="logo">Maelrix<span class="ai">AI</span></div>
+  <div class="logo">MaelrixAI</div>
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
   <div class="menu" id="menu">
@@ -325,20 +338,23 @@ footer a:hover{
 
 <section class="reviews-wrap" id="reviews">
   <h2>What Readers Are Saying</h2>
-  <p>Honest feedback from real readers</p>
+  <p>Trusted by readers worldwide</p>
 </section>
 
 <section class="reviews">
   <div class="review">
-    <h4>★★★★★ Aman</h4>
+    <div class="stars">★★★★★</div>
+    <h4>Aman</h4>
     <p>This book reshaped how I think about growth and discipline.</p>
   </div>
   <div class="review">
-    <h4>★★★★★ Sara</h4>
+    <div class="stars">★★★★★</div>
+    <h4>Sara</h4>
     <p>Simple, refined, and incredibly practical.</p>
   </div>
   <div class="review">
-    <h4>★★★★★ Rohit</h4>
+    <div class="stars">★★★★★</div>
+    <h4>Rohit</h4>
     <p>A calm yet powerful reading experience.</p>
   </div>
 </section>
@@ -346,8 +362,13 @@ footer a:hover{
 <div class="divider"></div>
 
 <section class="author">
-  <h2>Furkan Khan</h2>
-  <p>Writer</p>
+  <div class="author-card">
+    <div class="author-photo">
+      <img src="author.jpg" alt="Author Furkan Khan">
+    </div>
+    <h2>Furkan Khan</h2>
+    <p>Writer</p>
+  </div>
 </section>
 
 <div class="divider"></div>
@@ -358,23 +379,6 @@ footer a:hover{
 </section>
 
 <footer>
-  <div>
-    <h4>Product</h4>
-    <a href="#">Buy Book</a>
-    <a href="preview.pdf" download>PDF Preview</a>
-  </div>
-
-  <div>
-    <h4>Company</h4>
-    <a href="#">Maelrix AI</a>
-    <a href="#">Upcoming Releases</a>
-  </div>
-
-  <div>
-    <h4>Support</h4>
-    <a href="https://wa.me/9657981973?text=Hi" target="_blank">Contact</a>
-  </div>
-
   <div class="copy">
     © 2026 Maelrix AI. All rights reserved.
   </div>
