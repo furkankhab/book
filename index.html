@@ -20,9 +20,9 @@
       color:#ffffff;
     }
 
-    /* ========= HEADER ========= */
+    /* ================= HEADER ================= */
     .site-header{
-      padding:20px 8%;
+      padding:20px 7%;
       display:flex;
       align-items:center;
       background:rgba(255,255,255,0.035);
@@ -44,11 +44,11 @@
       color:#7cf3ff;
     }
 
-    /* ⬅️ NAV SLIGHTLY LEFT */
+    /* 👈 NAV MORE LEFT */
     .nav-links{
-      margin-left:42px;   /* pehle zyada tha, ab balanced */
+      margin-left:28px;
       display:flex;
-      gap:26px;
+      gap:22px;
     }
 
     .nav-links a{
@@ -63,12 +63,12 @@
       opacity:1;
     }
 
-    /* ========= HERO ========= */
+    /* ================= HERO ================= */
     .hero{
-      padding:85px 8%;
+      padding:80px 7%;
       display:grid;
-      grid-template-columns:1fr 0.9fr; /* proportions refined */
-      gap:90px; /* zyada breathing space */
+      grid-template-columns:1fr 0.9fr;
+      gap:90px;
       align-items:center;
     }
 
@@ -142,47 +142,77 @@
       background:rgba(255,255,255,0.06);
     }
 
-    /* ========= PRODUCT CARD ========= */
-    .product{
-      background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015));
-      border:1px solid rgba(255,255,255,0.12);
-      border-radius:18px;
-      padding:30px;
+    /* ================= ABOUT SECTION ================= */
+    .about{
+      padding:90px 7%;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .about h2{
+      font-size:36px;
+      margin-bottom:14px;
       text-align:center;
-      box-shadow:0 45px 80px rgba(0,0,0,0.65);
-      max-width:360px; /* controlled width */
-      margin-left:auto;
     }
 
-    .product img{
-      width:200px;
-      border-radius:14px;
-      margin-bottom:22px;
+    .about .subtitle{
+      text-align:center;
+      font-size:15px;
+      opacity:0.75;
+      margin-bottom:50px;
     }
 
-    .product h3{
-      font-size:17px;
+    .divider{
+      height:1px;
+      background:linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+      margin:40px 0;
+    }
+
+    .features{
+      text-align:center;
+    }
+
+    .features h3{
+      font-size:20px;
+      margin-bottom:18px;
       font-weight:600;
-      margin-bottom:8px;
     }
 
-    .product p{
-      font-size:13.5px;
-      opacity:0.72;
-      margin-bottom:20px;
+    .features ul{
+      list-style:none;
+      padding:0;
     }
 
-    /* ========= FOOTER ========= */
+    .features ul li{
+      font-size:16px;
+      margin:14px 0;
+      opacity:0.85;
+    }
+
+    .highlight{
+      margin-top:40px;
+      font-size:16px;
+      opacity:0.9;
+      text-align:center;
+      font-style:italic;
+    }
+
+    .about .purchase-area{
+      margin-top:50px;
+      text-align:center;
+    }
+
+    /* ================= FOOTER ================= */
     footer{
       margin-top:90px;
-      padding:38px 8%;
+      padding:38px 7%;
       text-align:center;
       font-size:13.5px;
       opacity:0.55;
       border-top:1px solid rgba(255,255,255,0.08);
     }
 
-    /* ========= MOBILE ========= */
+    /* ================= MOBILE ================= */
     @media(max-width:900px){
 
       .site-header{
@@ -219,14 +249,6 @@
       .btn{
         width:100%;
       }
-
-      .product{
-        margin:0 auto;
-      }
-
-      .product img{
-        width:170px;
-      }
     }
   </style>
 </head>
@@ -236,12 +258,14 @@
 <header class="site-header">
   <h1 class="logo">Maelrix<span>AI</span></h1>
   <nav class="nav-links">
-    <a href="#">Home</a>
-    <a href="#">Product</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#product">Product</a>
   </nav>
 </header>
 
-<section class="hero">
+<!-- HOME -->
+<section class="hero" id="home">
 
   <div class="hero-text">
     <div class="badge">AI-Curated Digital Experience</div>
@@ -257,29 +281,43 @@
     <div class="price">₹149 <span>• Lifetime Access</span></div>
 
     <div class="actions">
-      <a href="https://store.pothi.com/book/furkan-khan-masterpiece/"
-         target="_blank"
-         class="btn btn-primary">
-         Buy Now
-      </a>
-
-      <a href="https://store.pothi.com/book/furkan-khan-masterpiece/"
-         target="_blank"
-         class="btn btn-secondary">
-         Preview on Store
-      </a>
+      <a href="#about" class="btn btn-secondary">Explore Features</a>
     </div>
   </div>
 
-  <div class="product">
-    <img src="book.jpg" alt="The Masterpiece Book">
-    <h3>The Masterpiece</h3>
-    <p>Digital Edition • Instant Access • Premium Reading</p>
+</section>
 
+<!-- ABOUT -->
+<section class="about" id="about">
+
+  <h2>Features of the Book</h2>
+  <p class="subtitle">A thoughtfully curated reading experience inspired by the world’s most impactful titles</p>
+
+  <div class="divider"></div>
+
+  <div class="features">
+    <h3>Inspired by Legendary Works</h3>
+
+    <ul>
+      <li>• Rich Dad Poor Dad — Financial clarity and mindset growth</li>
+      <li>• The Five Regrets of the Dying — Deep life reflection and meaning</li>
+      <li>• Atomic Habits — Powerful systems for personal change</li>
+      <li>• Wings of Fire — Vision, resilience, and inspiration</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <p class="highlight">
+      “A powerful collection inspired by four of the most influential books ever written —
+      carefully blended into a single, meaningful reading journey.”
+    </p>
+  </div>
+
+  <div class="purchase-area">
     <a href="https://store.pothi.com/book/furkan-khan-masterpiece/"
        target="_blank"
        class="btn btn-primary">
-       Purchase
+       Purchase the Book
     </a>
   </div>
 
