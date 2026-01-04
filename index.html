@@ -77,8 +77,6 @@ header{
 
 /* ================= HERO ================= */
 .hero{
-  /* CHANGED: Reduced top padding from 80px to 40px (Gap between Header and Title) */
-  /* CHANGED: Reduced bottom padding from 65px to 30px (Gap between Hero and Reviews) */
   padding:40px 6% 30px;
   display:grid;
   grid-template-columns:1fr 0.9fr;
@@ -161,13 +159,11 @@ header{
 
 /* ================= REVIEWS ================= */
 .reviews-wrap{
-  /* CHANGED: Reduced top padding from 80px to 40px (Gap between Hero/Product and Review Title) */
   padding:40px 6% 10px;
   text-align:center;
 }
 
 .reviews{
-  /* CHANGED: Reduced bottom padding from 70px to 20px (Gap between Review cards and Furkan/Creator) */
   padding:30px 6% 20px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -186,63 +182,98 @@ header{
   margin-bottom:8px;
 }
 
-/* ================= CREATOR + UPCOMING ================= */
+/* ================= REDESIGNED CREATOR CARD ================= */
 .creator-card{
-  /* CHANGED: Reduced top margin from 110px to 50px (Closer to the reviews) */
-  margin:50px auto 110px;
-  max-width:640px;
-  padding:65px 45px;
-  text-align:center;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.16);
-  border-radius:28px;
-  backdrop-filter:blur(20px);
-  box-shadow:0 45px 130px rgba(0,0,0,0.7);
+  position: relative;
+  margin: 50px auto 110px;
+  max-width: 700px;
+  padding: 0; /* Remove default padding for internal layout */
+  text-align: center;
+  
+  /* New Background Design: Darker with a faint cyber-grid */
+  background-color: #0f1422;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  
+  border: 1px solid rgba(124, 243, 255, 0.2);
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.8),
+    inset 0 0 30px rgba(124, 243, 255, 0.05);
+  overflow: hidden;
+}
+
+/* Inner container to hold content */
+.creator-content {
+  padding: 60px 40px;
+  position: relative;
+  z-index: 2;
+  background: radial-gradient(circle at center, rgba(124,243,255,0.05) 0%, transparent 70%);
 }
 
 .creator-card .name{
-  font-size:38px;
-  font-weight:600;
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .creator-card .role{
-  margin-top:6px;
-  font-size:15px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  opacity:0.7;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #7cf3ff; /* Neon cyan */
+  opacity: 0.8;
 }
 
 .creator-card .divider{
-  width:90px;
-  height:2px;
-  background:linear-gradient(90deg,#7cf3ff,#9b8cff);
-  margin:36px auto;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  margin: 40px 0;
 }
 
+/* "Upcoming Book" Badge Style */
 .creator-card .tag{
-  display:block;
-  font-size:13px;
-  letter-spacing:2.5px;
-  text-transform:uppercase;
-  color:#9aa6ff;
-  margin-bottom:14px;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0b0f19;
+  background: #7cf3ff;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(124, 243, 255, 0.4);
 }
 
 .creator-card .teaser{
-  font-size:26px;
-  font-weight:500;
-  margin-bottom:14px;
-  opacity:0.9;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 25px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .creator-card .visual-title{
-  font-size:30px;
-  font-weight:600;
-  background:linear-gradient(90deg,#7cf3ff,#9b8cff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  text-shadow:0 0 28px rgba(124,243,255,0.4);
+  font-size: 38px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-style: italic;
+  /* Premium Gold/Purple/Cyan Gradient */
+  background: linear-gradient(135deg, #7cf3ff 10%, #ffffff 50%, #9b8cff 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(155, 140, 255, 0.3));
 }
 
 /* ================= FOOTER ================= */
@@ -330,14 +361,16 @@ footer{
 </section>
 
 <section class="creator-card">
-  <h2 class="name">Furkan Khan</h2>
-  <p class="role">Writer</p>
+  <div class="creator-content">
+    <h2 class="name">Furkan Khan</h2>
+    <p class="role">Writer</p>
 
-  <div class="divider"></div>
+    <div class="divider"></div>
 
-  <small class="tag">Upcoming Book</small>
-  <h3 class="teaser">The name remains hidden — the impact will be unforgettable</h3>
-  <div class="visual-title">The Visuals</div>
+    <span class="tag">Upcoming Book</span>
+    <h3 class="teaser">The name remains hidden — the impact will be unforgettable</h3>
+    <div class="visual-title">The Visuals</div>
+  </div>
 </section>
 
 <footer>
