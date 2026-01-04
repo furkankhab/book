@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maelrix AI | Digital Knowledge Product</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -18,7 +18,7 @@
 body{
   background:#0b0f19;
   color:#ffffff;
-  /* Base font size slightly reduced for the whole site */
+  /* Base font size kept small as requested */
   font-size: 14px; 
 }
 
@@ -37,7 +37,7 @@ header{
 }
 
 .logo{
-  font-size:24px; /* Reduced from 28px */
+  font-size:24px;
   font-weight:700;
   letter-spacing:1px;
   background:linear-gradient(90deg,#7cf3ff,#9b8cff,#7cf3ff);
@@ -77,9 +77,10 @@ header{
   opacity:1;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (Vertical Spacing Fixed) ================= */
 .hero{
-  padding:70px 6% 60px; /* Reduced padding */
+  /* Changed bottom padding from 60px to 30px to fix the gap */
+  padding:70px 6% 30px; 
   display:grid;
   grid-template-columns:1fr 0.9fr;
   gap:60px;
@@ -95,17 +96,17 @@ header{
   background:rgba(124,243,255,0.14);
   color:#7cf3ff;
   border-radius:18px;
-  font-size:11px; /* Smaller badge text */
+  font-size:11px;
 }
 
 .hero h2{
-  font-size:38px; /* Reduced from 44px */
+  font-size:38px;
   margin:16px 0;
   line-height: 1.2;
 }
 
 .hero p{
-  font-size:14px; /* Reduced from 16px */
+  font-size:14px;
   opacity:0.85;
   line-height:1.7;
   max-width:500px;
@@ -126,7 +127,7 @@ header{
 }
 
 .btn{
-  padding:12px 28px; /* Slightly smaller buttons */
+  padding:12px 28px;
   border-radius:10px;
   text-decoration:none;
   font-weight:600;
@@ -154,7 +155,7 @@ header{
 }
 
 .product img{
-  width:190px; /* Slightly smaller image */
+  width:190px;
   border-radius:14px;
   outline:2px solid rgba(124,243,255,0.55);
   outline-offset:5px;
@@ -164,16 +165,17 @@ header{
 .product h3{ font-size: 16px; margin-bottom: 4px; }
 .product p{ font-size: 12px; opacity: 0.7; }
 
-/* ================= REVIEWS ================= */
+/* ================= REVIEWS (Vertical Spacing Fixed) ================= */
 .reviews-wrap{
-  padding:60px 6% 10px;
+  /* Changed top padding from 60px to 30px to fix the gap */
+  padding:30px 6% 10px;
   text-align:center;
   background:
     radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04), transparent 55%);
 }
 
 .reviews-wrap h2{
-  font-size:28px; /* Reduced from 32px */
+  font-size:28px;
   margin-bottom:6px;
 }
 
@@ -206,82 +208,109 @@ header{
 .review p{ font-size: 13px; opacity: 0.8; line-height: 1.5; }
 
 
-/* ================= INFO GRID (AUTHOR & UPCOMING REDESIGN) ================= */
-/* This section replaces the old separate Author/Upcoming sections */
+/* ================= NEW REDESIGNED BOTTOM SECTION (TERMINAL STYLE) ================= */
 
-.info-grid {
-  padding: 60px 6%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  background: radial-gradient(circle at 50% 50%, rgba(124,243,255,0.05), transparent 60%);
+.terminal-section {
+  padding: 80px 6%;
+  display: flex;
+  justify-content: center;
+  /* Subtle circuit board pattern background */
+  background-image: 
+    linear-gradient(rgba(11, 15, 25, 0.9), rgba(11, 15, 25, 0.9)),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237cf3ff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-.info-card {
-  background: rgba(11, 15, 25, 0.6);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 20px;
+.terminal-container {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  /* A glowing tech border container */
+  border: 1px solid rgba(124, 243, 255, 0.2);
+  background: rgba(124, 243, 255, 0.03);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(124, 243, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* Common styles for data blocks */
+.terminal-block {
+  flex: 1;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.info-card:hover {
-  border-color: rgba(124,243,255,0.3);
-  transform: translateY(-5px);
-}
-
-/* Decorative background glow for cards */
-.info-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
-  pointer-events: none;
-}
-
-.card-label {
-  font-size: 10px;
+/* Styled labels using the mono font for data look */
+.data-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   color: #9aa6ff;
-  border: 1px solid rgba(154, 166, 255, 0.3);
-  padding: 6px 16px;
-  border-radius: 50px;
-  margin-bottom: 16px;
-  background: rgba(154, 166, 255, 0.05);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
 }
 
-.info-card h2 {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #fff;
+/* Little glowing dot next to labels */
+.data-label::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #7cf3ff;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 8px #7cf3ff;
 }
 
-.info-card p {
-  font-size: 13px;
-  opacity: 0.6;
-  letter-spacing: 1px;
-}
-
-/* Specific styling for the Visuals text */
-.gradient-text-reveal {
-  font-size: 20px;
+.data-value-large {
+  font-size: 28px;
   font-weight: 700;
-  margin-top: 10px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.data-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* The glowing divider line */
+.terminal-divider {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(124, 243, 255, 0.4), transparent);
+}
+
+/* Styles specific to the Upcoming block */
+.upcoming-block {
+  background: rgba(124, 243, 255, 0.02);
+  position: relative;
+}
+
+/* The main reveal text style */
+.reveal-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
   background: linear-gradient(90deg, #7cf3ff, #9b8cff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(124,243,255,0.2);
-  letter-spacing: 0.5px;
+  text-shadow: 0 0 25px rgba(124,243,255,0.4);
+  letter-spacing: 1px;
+  margin-top: 16px;
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px dashed rgba(124, 243, 255, 0.3);
 }
+
+/* Optional blinking effect for the upcoming label */
+@keyframes blink { 50% { opacity: 0.5; } }
+.blinking::before { animation: blink 1.5s infinite; }
+
 
 /* ================= FOOTER ================= */
 footer{
@@ -304,9 +333,19 @@ footer{
     justify-content:center;
   }
   
-  /* Stack the info cards on mobile */
-  .info-grid {
-    grid-template-columns: 1fr;
+  /* Stack the terminal blocks on mobile */
+  .terminal-container {
+    flex-direction: column;
+  }
+  .terminal-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(124, 243, 255, 0.4), transparent);
+  }
+  .terminal-block {
+    padding: 30px;
+    align-items: center;
+    text-align: center;
   }
 }
 </style>
@@ -373,22 +412,27 @@ footer{
   </div>
 </section>
 
-<section class="info-grid">
-  
-  <div class="info-card">
-    <span class="card-label">The Creator</span>
-    <h2>Furkan Khan</h2>
-    <p>Writer & Curator</p>
-  </div>
+<section class="terminal-section">
+  <div class="terminal-container">
+    
+    <div class="terminal-block">
+      <div class="data-label">Source Identification</div>
+      <div class="data-value-large">Furkan Khan</div>
+      <div class="data-status">Create & Curate // Maelrix Init.</div>
+    </div>
 
-  <div class="info-card">
-    <span class="card-label">Upcoming Book</span>
-    <h2>Only the Name Revealed</h2>
-    <div class="gradient-text-reveal">The Visuals</div>
-  </div>
+    <div class="terminal-divider"></div>
 
+    <div class="terminal-block upcoming-block">
+      <div class="data-label blinking">Incoming Transmission</div>
+      <div class="data-value-large" style="font-size: 22px;">Only the Name Revealed</div>
+      <div>
+        <span class="reveal-text">The Visuals</span>
+      </div>
+    </div>
+
+  </div>
 </section>
-
 <footer>
   © 2026 Maelrix AI. All rights reserved.
 </footer>
