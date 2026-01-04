@@ -34,7 +34,7 @@ header{
   z-index:200;
 }
 
-/* MODERN LOGO */
+/* LOGO */
 .logo{
   font-size:28px;
   font-weight:700;
@@ -42,14 +42,10 @@ header{
   background:linear-gradient(90deg,#7cf3ff,#9b8cff,#7cf3ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  text-shadow:0 0 30px rgba(124,243,255,0.35);
 }
 
 /* MENU */
-.menu-btn{
-  font-size:22px;
-  cursor:pointer;
-}
+.menu-btn{ font-size:22px; cursor:pointer; }
 
 .menu{
   position:absolute;
@@ -69,17 +65,11 @@ header{
   color:#ffffff;
   font-size:14px;
   opacity:0.85;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-}
-
-.menu a:hover{
-  background:rgba(124,243,255,0.08);
-  opacity:1;
 }
 
 /* ================= HERO ================= */
 .hero{
-  padding:80px 6% 65px;
+  padding:80px 6% 70px;
   display:grid;
   grid-template-columns:1fr 0.9fr;
   gap:80px;
@@ -148,37 +138,30 @@ header{
   border-radius:22px;
   padding:36px;
   text-align:center;
-  box-shadow:0 40px 100px rgba(0,0,0,0.7);
-}
-
-.product img{
-  width:210px;
-  border-radius:16px;
-  outline:2px solid rgba(124,243,255,0.55);
-  outline-offset:6px;
-  margin-bottom:18px;
 }
 
 /* ================= REVIEWS ================= */
-.reviews-wrap{
-  padding:80px 6% 10px;
-  text-align:center;
+.reviews-section{
+  padding:90px 6%;
   background:
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04), transparent 55%);
+    radial-gradient(circle at 50% 40%, rgba(255,255,255,0.04), transparent 55%);
 }
 
-.reviews-wrap h2{
+.reviews-header{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.reviews-header h2{
   font-size:32px;
-  margin-bottom:6px;
 }
 
-.reviews-wrap p{
-  font-size:15px;
+.reviews-header p{
   opacity:0.7;
+  margin-top:6px;
 }
 
 .reviews{
-  padding:30px 6% 70px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:24px;
@@ -196,47 +179,51 @@ header{
   margin-bottom:8px;
 }
 
-.review h4{
-  margin-bottom:6px;
-}
-
 /* ================= AUTHOR ================= */
-.author{
-  padding:90px 6%;
+.author-section{
+  padding:100px 6%;
   text-align:center;
   background:
     radial-gradient(circle at 50% 30%, rgba(155,140,255,0.14), transparent 55%);
 }
 
-.author h2{
+.author-section h2{
   font-size:36px;
   font-weight:600;
   letter-spacing:1px;
 }
 
-.author p{
+.author-section p{
   margin-top:6px;
-  font-size:16px;
+  font-size:15px;
   opacity:0.75;
   letter-spacing:2px;
   text-transform:uppercase;
 }
 
-/* ================= UPCOMING ================= */
-.upcoming{
-  padding:90px 6%;
+/* ================= UPCOMING BOOK ================= */
+.upcoming-section{
+  padding:100px 6%;
   text-align:center;
   background:
     radial-gradient(circle at 50% 50%, rgba(124,243,255,0.08), transparent 55%);
 }
 
-.upcoming h2{
-  font-size:32px;
-  margin-bottom:8px;
+.upcoming-section h2{
+  font-size:34px;
+  margin-bottom:10px;
 }
 
-.upcoming p{
-  opacity:0.75;
+.upcoming-section .label{
+  font-size:14px;
+  opacity:0.7;
+  margin-bottom:14px;
+}
+
+.upcoming-section .book-name{
+  font-size:38px;
+  font-weight:700;
+  letter-spacing:2px;
 }
 
 /* ================= FOOTER ================= */
@@ -267,12 +254,10 @@ footer{
 <header>
   <div class="logo">MaelrixAI</div>
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
   <div class="menu" id="menu">
     <a href="#home">Home</a>
     <a href="#reviews">Reviews</a>
     <a href="preview.pdf" download>Download Book Preview</a>
-    <a href="https://wa.me/9657981973?text=Hi" target="_blank">Contact</a>
   </div>
 </header>
 
@@ -294,43 +279,42 @@ footer{
   </div>
 
   <div class="product">
-    <img src="book.jpg" alt="Book Cover">
     <h3>Premium Digital Edition</h3>
     <p>Instant Access • Lifetime Ownership</p>
   </div>
 </section>
 
-<section class="reviews-wrap" id="reviews">
-  <h2>What Readers Are Saying</h2>
-  <p>Trusted by readers worldwide</p>
+<section class="reviews-section" id="reviews">
+  <div class="reviews-header">
+    <h2>What Readers Are Saying</h2>
+    <p>Trusted by readers worldwide</p>
+  </div>
+
+  <div class="reviews">
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>Changed how I think about growth and discipline.</p>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>Simple, refined, and deeply practical.</p>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>A calm yet powerful reading experience.</p>
+    </div>
+  </div>
 </section>
 
-<section class="reviews">
-  <div class="review">
-    <div class="stars">★★★★★</div>
-    <h4>Aman</h4>
-    <p>This book reshaped how I think about growth and discipline.</p>
-  </div>
-  <div class="review">
-    <div class="stars">★★★★★</div>
-    <h4>Sara</h4>
-    <p>Simple, refined, and incredibly practical.</p>
-  </div>
-  <div class="review">
-    <div class="stars">★★★★★</div>
-    <h4>Rohit</h4>
-    <p>A calm yet powerful reading experience.</p>
-  </div>
-</section>
-
-<section class="author">
+<section class="author-section">
   <h2>Furkan Khan</h2>
   <p>Writer</p>
 </section>
 
-<section class="upcoming">
+<section class="upcoming-section">
   <h2>Upcoming Book</h2>
-  <p>Only the name revealed — <strong>The Visuals</strong></p>
+  <div class="label">Only the name revealed</div>
+  <div class="book-name">The Visuals</div>
 </section>
 
 <footer>
