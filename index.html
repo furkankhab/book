@@ -8,11 +8,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* ===== GLOBAL RESET (SPACE FIX) ===== */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family:'Inter',sans-serif;
+}
+
+html, body{
+  width:100%;
+  overflow-x:hidden;
 }
 
 body{
@@ -22,10 +29,10 @@ body{
 
 /* ================= HEADER ================= */
 .site-header{
-  padding:18px 6%;
+  padding:16px 6%;
   display:flex;
   align-items:center;
-  gap:32px;               /* ✅ title aur buttons ke beech space */
+  gap:28px;
   background:rgba(255,255,255,0.035);
   backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(255,255,255,0.08);
@@ -38,7 +45,6 @@ body{
 .logo{
   font-size:21px;
   font-weight:700;
-  letter-spacing:0.4px;
 }
 
 .logo span{
@@ -64,10 +70,10 @@ body{
 
 /* ================= HERO ================= */
 .hero{
-  padding:76px 6%;
+  padding:60px 6% 70px;
   display:grid;
   grid-template-columns:1fr 0.9fr;
-  gap:80px;
+  gap:70px;
   align-items:center;
 }
 
@@ -78,21 +84,21 @@ body{
   color:#7cf3ff;
   border-radius:18px;
   font-size:12px;
-  margin-bottom:16px;
+  margin-bottom:14px;
 }
 
 .hero-text h2{
-  font-size:44px;
+  font-size:42px;
   line-height:1.2;
-  margin-bottom:16px;
+  margin-bottom:14px;
   font-weight:600;
 }
 
 .hero-text p{
   font-size:16px;
-  line-height:1.75;
+  line-height:1.7;
   opacity:0.85;
-  margin-bottom:22px;
+  margin-bottom:20px;
   max-width:520px;
 }
 
@@ -107,7 +113,7 @@ body{
   border-radius:30px;
   font-size:15px;
   font-weight:600;
-  margin-bottom:26px;
+  margin-bottom:24px;
 }
 
 .price-strip span{
@@ -139,228 +145,4 @@ body{
 }
 
 .btn-secondary{
-  border:1px solid rgba(255,255,255,0.25);
-  color:#ffffff;
-}
-
-.btn-secondary:hover{
-  background:rgba(255,255,255,0.06);
-}
-
-/* ================= PRODUCT CARD ================= */
-.product{
-  background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015));
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:18px;
-  padding:30px;
-  text-align:center;
-  box-shadow:0 40px 70px rgba(0,0,0,0.6);
-  max-width:360px;
-  margin-left:auto;
-}
-
-.product img{
-  width:200px;
-  border-radius:14px;
-  margin-bottom:18px;
-}
-
-.product h3{
-  font-size:17px;
-  margin-bottom:6px;
-}
-
-.product p{
-  font-size:13.5px;
-  opacity:0.7;
-}
-
-/* ================= TRUST STRIP (NEW) ================= */
-.trust{
-  padding:50px 6%;
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  text-align:center;
-  opacity:0.8;
-}
-
-.trust div{
-  flex:1;
-  font-size:14px;
-}
-
-/* ================= ABOUT ================= */
-.about{
-  padding:80px 6% 60px;
-  max-width:900px;
-  margin:auto;
-  text-align:center;
-}
-
-.about h2{
-  font-size:32px;
-  margin-bottom:10px;
-}
-
-.about .subtitle{
-  font-size:15px;
-  opacity:0.75;
-  margin-bottom:40px;
-}
-
-.divider{
-  height:1px;
-  background:linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent);
-  margin:34px 0;
-}
-
-.about ul{
-  list-style:none;
-}
-
-.about ul li{
-  font-size:16px;
-  margin:12px 0;
-  opacity:0.88;
-}
-
-.highlight{
-  font-size:15.5px;
-  line-height:1.7;
-  opacity:0.9;
-  margin-top:26px;
-}
-
-/* ================= FOOTER ================= */
-footer{
-  padding:28px 6%;   /* ✅ extra bottom space removed */
-  text-align:center;
-  font-size:13px;
-  opacity:0.55;
-  border-top:1px solid rgba(255,255,255,0.08);
-}
-
-/* ================= MOBILE ================= */
-@media(max-width:900px){
-  .site-header{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-    gap:55px;
-  }
-
-  .actions{
-    justify-content:center;
-  }
-
-  .trust{
-    flex-direction:column;
-    gap:16px;
-  }
-
-  .product{
-    margin:auto;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<header class="site-header">
-  <h1 class="logo">Maelrix<span>AI</span></h1>
-
-  <nav class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="https://wa.me/9657981973?text=Hi" target="_blank">Contact</a>
-  </nav>
-</header>
-
-<section class="hero" id="home">
-
-  <div class="hero-text">
-    <div class="badge">AI-Curated Digital Experience</div>
-
-    <h2>The Masterpiece</h2>
-
-    <p>
-      A thoughtfully crafted digital book designed for modern, curious minds.
-      It blends insight, reflection, and clarity into a calm yet powerful
-      reading experience.
-    </p>
-
-    <div class="price-strip">
-      <span>₹149</span> • Lifetime Access
-    </div>
-
-    <div class="actions">
-      <a href="https://store.pothi.com/book/furkan-khan-masterpiece/"
-         target="_blank"
-         class="btn btn-primary">
-        Buy Now
-      </a>
-
-      <a href="#about" class="btn btn-secondary">
-        Explore Features
-      </a>
-    </div>
-  </div>
-
-  <div class="product">
-    <img src="book.jpg" alt="The Masterpiece Book Cover">
-    <h3>The Masterpiece</h3>
-    <p>Digital Edition • Instant Access • Premium Reading</p>
-  </div>
-
-</section>
-
-<!-- TRUST -->
-<section class="trust">
-  <div>✔ Secure Purchase</div>
-  <div>✔ Instant Access</div>
-  <div>✔ Lifetime Ownership</div>
-</section>
-
-<section class="about" id="about">
-
-  <h2>Features of the Book</h2>
-  <p class="subtitle">Inspired by the most impactful books ever written</p>
-
-  <div class="divider"></div>
-
-  <ul>
-    <li>Rich Dad Poor Dad — Financial mindset & clarity</li>
-    <li>The Five Regrets of the Dying — Life reflection & meaning</li>
-    <li>Atomic Habits — Systems for lasting change</li>
-    <li>Wings of Fire — Vision, resilience & inspiration</li>
-  </ul>
-
-  <div class="divider"></div>
-
-  <p class="highlight">
-    A powerful collection inspired by four of the world’s most influential books,
-    refined into one cohesive and transformative reading journey.
-  </p>
-
-  <div style="margin-top:36px;">
-    <a href="https://store.pothi.com/book/furkan-khan-masterpiece/"
-       target="_blank"
-       class="btn btn-primary">
-      Purchase the Book
-    </a>
-  </div>
-
-</section>
-
-<footer>
-  © 2026 Maelrix AI. All rights reserved.
-</footer>
-
-</body>
-</html>
+  bord
