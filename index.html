@@ -60,19 +60,19 @@ body{
   opacity:1;
 }
 
-/* ================= DIVIDER ================= */
+/* ================= DIVIDER (NO EXTRA SPACE) ================= */
 .divider{
   height:1px;
   background:linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent);
-  margin:50px 0;
+  margin:28px 0; /* 🔥 controlled, tight spacing */
 }
 
 /* ================= HERO ================= */
 .hero{
-  padding:80px 6%;
+  padding:70px 6% 50px;
   display:grid;
   grid-template-columns:1fr 0.9fr;
-  gap:90px;
+  gap:80px;
   align-items:center;
 }
 
@@ -88,13 +88,13 @@ body{
 .hero-text h2{
   font-size:42px;
   line-height:1.25;
-  margin:18px 0;
+  margin:16px 0;
   font-weight:600;
 }
 
 .hero-text p{
   font-size:16px;
-  line-height:1.75;
+  line-height:1.7;
   opacity:0.85;
   max-width:520px;
 }
@@ -110,6 +110,7 @@ body{
   border-radius:30px;
   font-size:15px;
   font-weight:600;
+  margin-top:18px;
 }
 
 .price-strip span{
@@ -120,7 +121,7 @@ body{
 .actions{
   display:flex;
   gap:14px;
-  margin-top:26px;
+  margin-top:22px;
 }
 
 .btn{
@@ -167,7 +168,7 @@ body{
   border-radius:14px;
   outline:2px solid rgba(124,243,255,0.55);
   outline-offset:6px;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 .product h3{
@@ -180,65 +181,37 @@ body{
   opacity:0.7;
 }
 
-/* ================= FEATURES ================= */
-.features{
-  padding:0 6% 80px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:28px;
-}
-
-.feature-card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:14px;
-  padding:26px;
-  text-align:center;
-}
-
-.feature-card h4{
-  margin-bottom:10px;
-  font-size:16px;
-}
-
-.feature-card p{
-  font-size:14px;
-  opacity:0.75;
-  line-height:1.6;
-}
-
-/* ================= ABOUT ================= */
-.about{
-  padding:0 6% 80px;
+/* ================= KNOWLEDGE SECTION ================= */
+.knowledge{
+  padding:45px 6% 55px;
   max-width:900px;
   margin:auto;
   text-align:center;
 }
 
-.about h2{
-  font-size:32px;
-  margin-bottom:12px;
+.knowledge h2{
+  font-size:30px;
+  margin-bottom:10px;
 }
 
-.about .subtitle{
+.knowledge .subtitle{
   font-size:15px;
-  opacity:0.75;
+  opacity:0.78;
 }
 
-.about ul{
-  list-style:none;
-  margin-top:30px;
+.book-list{
+  margin-top:28px;
 }
 
-.about ul li{
+.book-list div{
   font-size:16px;
-  margin:12px 0;
-  opacity:0.88;
+  margin:10px 0;
+  opacity:0.9;
 }
 
 /* ================= FOOTER ================= */
 footer{
-  padding:28px 6%;
+  padding:26px 6%;
   text-align:center;
   font-size:13px;
   opacity:0.55;
@@ -277,11 +250,9 @@ footer{
     <div class="badge">AI-Curated Digital Experience</div>
     <h2>Clarity. Growth. Perspective.</h2>
     <p>
-      A premium digital knowledge product designed to improve thinking,
-      decision-making, and long-term personal growth.
+      A premium digital knowledge product crafted to enhance critical thinking,
+      decision-making, and long-term personal development.
     </p>
-
-    <div class="divider"></div>
 
     <div class="price-strip">
       <span>₹149</span> • Lifetime Digital Access
@@ -302,37 +273,18 @@ footer{
 
 <div class="divider"></div>
 
-<section class="features">
-  <div class="feature-card">
-    <h4>Structured Learning</h4>
-    <p>Clear chapters designed for focus and understanding.</p>
-  </div>
-  <div class="feature-card">
-    <h4>Practical Insights</h4>
-    <p>Thinking frameworks usable in real-life decisions.</p>
-  </div>
-  <div class="feature-card">
-    <h4>Instant Access</h4>
-    <p>Immediate delivery after purchase.</p>
-  </div>
-  <div class="feature-card">
-    <h4>Lifetime Value</h4>
-    <p>One-time purchase with permanent access.</p>
-  </div>
-</section>
+<section class="knowledge" id="about">
+  <h2>A Powerful Collection of the World’s Most Influential Books</h2>
+  <p class="subtitle">
+    This book distills the core wisdom of four globally celebrated works into one refined reading experience.
+  </p>
 
-<div class="divider"></div>
-
-<section class="about" id="about">
-  <h2>What You Will Gain</h2>
-  <p class="subtitle">Simplified learning for modern minds</p>
-
-  <ul>
-    <li>Clear mindset for personal and financial growth</li>
-    <li>Improved habits and disciplined thinking</li>
-    <li>Purpose-driven life approach</li>
-    <li>Confidence in long-term decisions</li>
-  </ul>
+  <div class="book-list">
+    <div>• <strong>Rich Dad Poor Dad</strong> — Building financial intelligence and wealth mindset</div>
+    <div>• <strong>The Five Regrets of the Dying</strong> — Deep life reflection and meaningful living</div>
+    <div>• <strong>Atomic Habits</strong> — Creating lasting change through small systems</div>
+    <div>• <strong>Wings of Fire</strong> — Vision, resilience, and inspired leadership</div>
+  </div>
 </section>
 
 <footer>
