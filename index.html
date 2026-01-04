@@ -5,17 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maelrix AI | Digital Knowledge Product</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Inter',sans-serif;
 }
 
 body{
+  font-family:'Inter',sans-serif;
   background:linear-gradient(180deg,#0b0f19,#0e1424);
   color:#ffffff;
 }
@@ -34,21 +35,22 @@ header{
   z-index:200;
 }
 
-/* ATTRACTIVE LOGO */
+/* HANDWRITTEN LOGO */
 .logo{
-  font-size:26px;
-  font-weight:700;
+  font-family:'Pacifico',cursive;
+  font-size:32px;
   letter-spacing:1px;
   background:linear-gradient(90deg,#7cf3ff,#9d8cff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  text-shadow:0 0 25px rgba(124,243,255,0.35);
+  text-shadow:0 0 25px rgba(124,243,255,0.4);
 }
 
 /* MENU */
 .menu-btn{
   font-size:22px;
   cursor:pointer;
+  user-select:none;
 }
 
 .menu{
@@ -174,11 +176,6 @@ header{
   margin-bottom:6px;
 }
 
-.reviews-wrap p{
-  font-size:15px;
-  opacity:0.7;
-}
-
 .reviews{
   padding:30px 6% 50px;
   display:grid;
@@ -194,61 +191,33 @@ header{
 }
 
 .review .stars{
-  color:#f5c542; /* ⭐ yellow stars */
-  margin-bottom:8px;
-}
-
-.review h4{
+  color:#f5c542;
   margin-bottom:6px;
 }
 
-.review p{
-  font-size:14px;
-  opacity:0.8;
-  line-height:1.6;
-}
-
-/* ================= AUTHOR SECTION ================= */
+/* ================= AUTHOR ================= */
 .author{
-  padding:80px 6%;
+  padding:90px 6%;
   text-align:center;
-  background:rgba(255,255,255,0.02);
 }
 
-.author-card{
-  max-width:420px;
-  margin:auto;
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.14);
-  border-radius:22px;
-  padding:36px;
-  box-shadow:0 30px 90px rgba(0,0,0,0.65);
+.author-name{
+  display:inline-block;
+  padding:26px 44px;
+  font-size:34px;
+  font-weight:700;
+  letter-spacing:2px;
+  border:2px solid rgba(124,243,255,0.45);
+  border-radius:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01));
+  box-shadow:0 0 40px rgba(124,243,255,0.35);
 }
 
-.author-photo{
-  width:130px;
-  height:130px;
-  margin:0 auto 18px;
-  border-radius:50%;
-  padding:5px;
-  background:linear-gradient(135deg,#7cf3ff,#9d8cff);
-}
-
-.author-photo img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-}
-
-.author h2{
-  font-size:28px;
-  margin-bottom:6px;
-}
-
-.author p{
-  opacity:0.75;
+.author-role{
+  margin-top:14px;
   font-size:15px;
+  letter-spacing:3px;
+  opacity:0.7;
 }
 
 /* ================= UPCOMING ================= */
@@ -269,18 +238,9 @@ header{
 /* ================= FOOTER ================= */
 footer{
   padding:36px 6%;
-  background:rgba(255,255,255,0.03);
-  border-top:1px solid rgba(255,255,255,0.08);
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:28px;
-  font-size:13px;
-}
-
-.copy{
   text-align:center;
-  opacity:0.5;
-  grid-column:1/-1;
+  border-top:1px solid rgba(255,255,255,0.08);
+  opacity:0.55;
 }
 
 /* ================= MOBILE ================= */
@@ -338,23 +298,19 @@ footer{
 
 <section class="reviews-wrap" id="reviews">
   <h2>What Readers Are Saying</h2>
-  <p>Trusted by readers worldwide</p>
 </section>
 
 <section class="reviews">
   <div class="review">
     <div class="stars">★★★★★</div>
-    <h4>Aman</h4>
     <p>This book reshaped how I think about growth and discipline.</p>
   </div>
   <div class="review">
     <div class="stars">★★★★★</div>
-    <h4>Sara</h4>
     <p>Simple, refined, and incredibly practical.</p>
   </div>
   <div class="review">
     <div class="stars">★★★★★</div>
-    <h4>Rohit</h4>
     <p>A calm yet powerful reading experience.</p>
   </div>
 </section>
@@ -362,13 +318,8 @@ footer{
 <div class="divider"></div>
 
 <section class="author">
-  <div class="author-card">
-    <div class="author-photo">
-      <img src="author.jpg" alt="Author Furkan Khan">
-    </div>
-    <h2>Furkan Khan</h2>
-    <p>Writer</p>
-  </div>
+  <div class="author-name">Furkan Khan</div>
+  <div class="author-role">WRITER</div>
 </section>
 
 <div class="divider"></div>
@@ -379,9 +330,7 @@ footer{
 </section>
 
 <footer>
-  <div class="copy">
-    © 2026 Maelrix AI. All rights reserved.
-  </div>
+  © 2026 Maelrix AI. All rights reserved.
 </footer>
 
 <script>
