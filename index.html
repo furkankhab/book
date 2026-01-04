@@ -1,148 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Maelrix AI | Digital Book</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Maelrix AI | Digital Book</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ================= GLOBAL VARIABLES & RESET ================= */
+        :root {
+            --bg-dark: #0b0f19;
+            --bg-darker: #0e1424;
+            --accent: #7cf3ff;
+            --text-main: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
 
-<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-/* ===== GLOBAL RESET (SPACE FIX) ===== */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-html, body{
-  width:100%;
-  overflow-x:hidden;
-}
+        body {
+            background: linear-gradient(180deg, var(--bg-dark), var(--bg-darker));
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-body{
-  background:linear-gradient(180deg,#0b0f19,#0e1424);
-  color:#ffffff;
-}
+        a { text-decoration: none; }
+        ul { list-style: none; }
 
-/* ================= HEADER ================= */
-.site-header{
-  padding:16px 6%;
-  display:flex;
-  align-items:center;
-  gap:28px;
-  background:rgba(255,255,255,0.035);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  position:sticky;
-  top:0;
-  z-index:100;
-  white-space:nowrap;
-}
+        /* ================= HEADER ================= */
+        .site-header {
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-.logo{
-  font-size:21px;
-  font-weight:700;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
 
-.logo span{
-  color:#7cf3ff;
-}
+        .logo span {
+            color: var(--accent);
+        }
 
-.nav-links{
-  display:flex;
-  gap:18px;
-}
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
 
-.nav-links a{
-  color:#ffffff;
-  text-decoration:none;
-  font-size:13.5px;
-  font-weight:500;
-  opacity:0.75;
-}
+        .nav-links a {
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.7;
+            transition: 0.3s ease;
+        }
 
-.nav-links a:hover{
-  opacity:1;
-}
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
 
-/* ================= HERO ================= */
-.hero{
-  padding:60px 6% 70px;
-  display:grid;
-  grid-template-columns:1fr 0.9fr;
-  gap:70px;
-  align-items:center;
-}
+        /* ================= HERO SECTION ================= */
+        .hero {
+            padding: 80px 6% 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-.badge{
-  display:inline-block;
-  padding:6px 14px;
-  background:rgba(124,243,255,0.12);
-  color:#7cf3ff;
-  border-radius:18px;
-  font-size:12px;
-  margin-bottom:14px;
-}
+        /* TEXT CONTENT */
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(124, 243, 255, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(124, 243, 255, 0.2);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
 
-.hero-text h2{
-  font-size:42px;
-  line-height:1.2;
-  margin-bottom:14px;
-  font-weight:600;
-}
+        .hero-text h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #a5f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.hero-text p{
-  font-size:16px;
-  line-height:1.7;
-  opacity:0.85;
-  margin-bottom:20px;
-  max-width:520px;
-}
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
 
-/* PRICE STRIP */
-.price-strip{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 18px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:30px;
-  font-size:15px;
-  font-weight:600;
-  margin-bottom:24px;
-}
+        /* PRICING & BUTTONS */
+        .price-strip {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
 
-.price-strip span{
-  color:#7cf3ff;
-}
+        .price-strip .price {
+            color: var(--accent);
+            font-size: 18px;
+        }
 
-/* BUTTONS */
-.actions{
-  display:flex;
-  gap:14px;
-}
+        .actions {
+            display: flex;
+            gap: 16px;
+        }
 
-.btn{
-  padding:13px 30px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:600;
-  font-size:14px;
-  transition:0.25s ease;
-}
+        .btn {
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
 
-.btn-primary{
-  background:#7cf3ff;
-  color:#000;
-}
+        .btn-primary {
+            background: var(--accent);
+            color: #0b0f19;
+            box-shadow: 0 4px 20px rgba(124, 243, 255, 0.15);
+        }
 
-.btn-primary:hover{
-  transform:translateY(-2px);
-}
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(124, 243, 255, 0.3);
+            background: #ffffff;
+        }
 
-.btn-secondary{
-  bord
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* ================= 3D CSS BOOK COVER ================= */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .book-container {
+            width: 320px;
+            height: 480px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(-25deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+            box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .book-container:hover {
+            transform: rotateY(-15deg) rotateX(0deg) translateY(-10px);
+        }
+
+        .book-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e2532 0%, #0e121d 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 2px 6px 6px 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            /* 3D Depth effect */
+            transform: translateZ(25px);
+        }
+
+        .book-spine {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 50px;
+            background: #0b0f19;
+            transform: rotateY(90deg) translateZ(-25px);
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .book-logo {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .book-subtitle {
+            color: var(--accent);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .book-art {
+            margin-top: 40px;
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(124, 243, 255, 0.1);
+        }
+
+        .book-art span { font-size: 40px; }
+
+        /* ================= FEATURES GRID ================= */
+        .features {
+            padding: 80px 6%;
+            background: var(--bg-darker);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 30px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+                padding-top: 40px;
+            }
+
+            .hero-text h1 { font-size: 42px; }
+            .hero-text p { margin-left: auto; margin-right: auto; }
+            .actions { justify-content: center; }
+            
+            .nav-links { display: none; /* Hidden for simplicity on mobile */ }
+            
+            .hero-visual { padding-bottom: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo">MAELRIX<span>AI</span></div>
+        <nav class="nav-links">
+            <a href="#">The Book</a>
+            <a href="#">Curriculum</a>
+            <a href="#">Author</a>
+            <a href="#">FAQ</a>
+        </nav>
+        <div style="color:white; display: none;" class="mobile-menu">☰</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <span class="badge">UPDATED FOR 2026</span>
+                <h1>Architecting the Future of Intelligence</h1>
+                <p>
+                    A definitive guide to Large Language Models and Neural Architecture. 
+                    Written for senior engineers, covering theory, implementation, and ethics.
+                </p>
+                
+                <div class="price-strip">
+                    Digital Edition <span class="price">$29.00</span>
+                </div>
+
+                <div class="actions">
+                    <a href="#" class="btn btn-primary">Get the Book</a>
+                    <a href="#" class="btn btn-secondary">Read Preview</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="book-container">
+                    <div class="book-spine"></div>
+                    <div class="book-cover">
+                        <div class="book-logo">MAELRIX</div>
+                        <div class="book-subtitle">Artificial Intelligence</div>
+                        <div class="book-art">
+                            <span>◈</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Deep Architecture</h3>
+                    <p>Understanding the layers behind the transformer models and how to optimize them for production environments.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Generative Logic</h3>
+                    <p>Master the algorithms that power text, image, and code generation with practical Python examples.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Ethical AI</h3>
+                    <p>A dedicated framework for building safe, unbiased, and compliant artificial intelligence systems.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
