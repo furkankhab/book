@@ -20,36 +20,34 @@ body{
   color:#ffffff;
 }
 
-/* ========== HEADER (ONE LINE FIXED) ========== */
+/* ================= HEADER ================= */
 .site-header{
   padding:18px 6%;
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:32px;               /* ✅ title aur buttons ke beech space */
   background:rgba(255,255,255,0.035);
   backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(255,255,255,0.08);
   position:sticky;
   top:0;
   z-index:100;
-  white-space:nowrap; /* 🔒 no wrap ever */
+  white-space:nowrap;
 }
 
 .logo{
   font-size:21px;
   font-weight:700;
-  letter-spacing:0.3px;
+  letter-spacing:0.4px;
 }
 
 .logo span{
   color:#7cf3ff;
 }
 
-/* NAV VERY CLOSE + SAME LINE */
 .nav-links{
   display:flex;
-  gap:16px;
-  align-items:center;
+  gap:18px;
 }
 
 .nav-links a{
@@ -57,16 +55,16 @@ body{
   text-decoration:none;
   font-size:13.5px;
   font-weight:500;
-  opacity:0.78;
+  opacity:0.75;
 }
 
 .nav-links a:hover{
   opacity:1;
 }
 
-/* ========== HERO ========== */
+/* ================= HERO ================= */
 .hero{
-  padding:78px 6%;
+  padding:76px 6%;
   display:grid;
   grid-template-columns:1fr 0.9fr;
   gap:80px;
@@ -92,13 +90,13 @@ body{
 
 .hero-text p{
   font-size:16px;
-  line-height:1.7;
-  opacity:0.82;
-  margin-bottom:24px;
-  max-width:500px;
+  line-height:1.75;
+  opacity:0.85;
+  margin-bottom:22px;
+  max-width:520px;
 }
 
-/* 🔥 PRICE REPOSITIONED (ATTRACTIVE STRIP) */
+/* PRICE STRIP */
 .price-strip{
   display:inline-flex;
   align-items:center;
@@ -109,19 +107,17 @@ body{
   border-radius:30px;
   font-size:15px;
   font-weight:600;
-  margin-bottom:28px;
+  margin-bottom:26px;
 }
 
 .price-strip span{
   color:#7cf3ff;
-  font-weight:700;
 }
 
 /* BUTTONS */
 .actions{
   display:flex;
   gap:14px;
-  flex-wrap:wrap;
 }
 
 .btn{
@@ -131,13 +127,11 @@ body{
   font-weight:600;
   font-size:14px;
   transition:0.25s ease;
-  text-align:center;
 }
 
 .btn-primary{
   background:#7cf3ff;
   color:#000;
-  box-shadow:0 16px 32px rgba(124,243,255,0.26);
 }
 
 .btn-primary:hover{
@@ -153,14 +147,14 @@ body{
   background:rgba(255,255,255,0.06);
 }
 
-/* ========== PRODUCT CARD ========== */
+/* ================= PRODUCT CARD ================= */
 .product{
   background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015));
   border:1px solid rgba(255,255,255,0.12);
   border-radius:18px;
   padding:30px;
   text-align:center;
-  box-shadow:0 45px 80px rgba(0,0,0,0.65);
+  box-shadow:0 40px 70px rgba(0,0,0,0.6);
   max-width:360px;
   margin-left:auto;
 }
@@ -168,43 +162,57 @@ body{
 .product img{
   width:200px;
   border-radius:14px;
-  margin-bottom:22px;
+  margin-bottom:18px;
 }
 
 .product h3{
   font-size:17px;
-  font-weight:600;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
 .product p{
   font-size:13.5px;
-  opacity:0.72;
+  opacity:0.7;
 }
 
-/* ========== ABOUT ========== */
+/* ================= TRUST STRIP (NEW) ================= */
+.trust{
+  padding:50px 6%;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  text-align:center;
+  opacity:0.8;
+}
+
+.trust div{
+  flex:1;
+  font-size:14px;
+}
+
+/* ================= ABOUT ================= */
 .about{
-  padding:90px 6%;
+  padding:80px 6% 60px;
   max-width:900px;
   margin:auto;
   text-align:center;
 }
 
 .about h2{
-  font-size:34px;
-  margin-bottom:12px;
+  font-size:32px;
+  margin-bottom:10px;
 }
 
 .about .subtitle{
   font-size:15px;
   opacity:0.75;
-  margin-bottom:45px;
+  margin-bottom:40px;
 }
 
 .divider{
   height:1px;
-  background:linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
-  margin:38px 0;
+  background:linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent);
+  margin:34px 0;
 }
 
 .about ul{
@@ -213,30 +221,30 @@ body{
 
 .about ul li{
   font-size:16px;
-  margin:14px 0;
-  opacity:0.85;
+  margin:12px 0;
+  opacity:0.88;
 }
 
 .highlight{
-  font-style:italic;
+  font-size:15.5px;
+  line-height:1.7;
   opacity:0.9;
-  margin-top:28px;
+  margin-top:26px;
 }
 
-/* ========== FOOTER ========== */
+/* ================= FOOTER ================= */
 footer{
-  margin-top:90px;
-  padding:38px 6%;
+  padding:28px 6%;   /* ✅ extra bottom space removed */
   text-align:center;
-  font-size:13.5px;
+  font-size:13px;
   opacity:0.55;
   border-top:1px solid rgba(255,255,255,0.08);
 }
 
-/* ========== MOBILE ========= */
+/* ================= MOBILE ================= */
 @media(max-width:900px){
   .site-header{
-    flex-wrap:wrap; /* mobile pe allowed */
+    flex-wrap:wrap;
     justify-content:center;
   }
 
@@ -250,8 +258,9 @@ footer{
     justify-content:center;
   }
 
-  .btn{
-    width:100%;
+  .trust{
+    flex-direction:column;
+    gap:16px;
   }
 
   .product{
@@ -265,10 +274,11 @@ footer{
 
 <header class="site-header">
   <h1 class="logo">Maelrix<span>AI</span></h1>
+
   <nav class="nav-links">
     <a href="#home">Home</a>
     <a href="#about">About</a>
-    <a href="#product">Product</a>
+    <a href="https://wa.me/9657981973?text=Hi" target="_blank">Contact</a>
   </nav>
 </header>
 
@@ -280,9 +290,9 @@ footer{
     <h2>The Masterpiece</h2>
 
     <p>
-      A carefully designed digital book for curious and reflective minds.
-      It explores life, awareness, and inner silence with clarity and depth,
-      offering insight that stays long after the final page.
+      A thoughtfully crafted digital book designed for modern, curious minds.
+      It blends insight, reflection, and clarity into a calm yet powerful
+      reading experience.
     </p>
 
     <div class="price-strip">
@@ -290,16 +300,19 @@ footer{
     </div>
 
     <div class="actions">
-      <a href="https://store.pothi.com/book/furkan-khan-masterpiece/" target="_blank" class="btn btn-primary">
+      <a href="https://store.pothi.com/book/furkan-khan-masterpiece/"
+         target="_blank"
+         class="btn btn-primary">
         Buy Now
       </a>
+
       <a href="#about" class="btn btn-secondary">
         Explore Features
       </a>
     </div>
   </div>
 
-  <div class="product" id="product">
+  <div class="product">
     <img src="book.jpg" alt="The Masterpiece Book Cover">
     <h3>The Masterpiece</h3>
     <p>Digital Edition • Instant Access • Premium Reading</p>
@@ -307,35 +320,46 @@ footer{
 
 </section>
 
+<!-- TRUST -->
+<section class="trust">
+  <div>✔ Secure Purchase</div>
+  <div>✔ Instant Access</div>
+  <div>✔ Lifetime Ownership</div>
+</section>
+
 <section class="about" id="about">
+
   <h2>Features of the Book</h2>
-  <p class="subtitle">Inspired by the most influential books ever written</p>
+  <p class="subtitle">Inspired by the most impactful books ever written</p>
 
   <div class="divider"></div>
 
   <ul>
-    <li>• Rich Dad Poor Dad — Financial wisdom & mindset clarity</li>
-    <li>• The Five Regrets of the Dying — Deep life reflection</li>
-    <li>• Atomic Habits — Systems for lasting change</li>
-    <li>• Wings of Fire — Vision, resilience & inspiration</li>
+    <li>Rich Dad Poor Dad — Financial mindset & clarity</li>
+    <li>The Five Regrets of the Dying — Life reflection & meaning</li>
+    <li>Atomic Habits — Systems for lasting change</li>
+    <li>Wings of Fire — Vision, resilience & inspiration</li>
   </ul>
 
   <div class="divider"></div>
 
   <p class="highlight">
-    “A powerful collection inspired by four of the most celebrated books in the world,
-    refined into one meaningful reading experience.”
+    A powerful collection inspired by four of the world’s most influential books,
+    refined into one cohesive and transformative reading journey.
   </p>
 
-  <div style="margin-top:40px;">
-    <a href="https://store.pothi.com/book/furkan-khan-masterpiece/" target="_blank" class="btn btn-primary">
+  <div style="margin-top:36px;">
+    <a href="https://store.pothi.com/book/furkan-khan-masterpiece/"
+       target="_blank"
+       class="btn btn-primary">
       Purchase the Book
     </a>
   </div>
+
 </section>
 
 <footer>
-  © 2026 Maelrix AI. Designed for modern readers.
+  © 2026 Maelrix AI. All rights reserved.
 </footer>
 
 </body>
