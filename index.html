@@ -25,7 +25,7 @@
       padding:22px 10%;
       display:flex;
       align-items:center;
-      gap:70px;
+      justify-content:flex-start;
       background:rgba(255,255,255,0.03);
       backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(255,255,255,0.08);
@@ -38,6 +38,7 @@
       font-size:22px;
       font-weight:700;
       letter-spacing:0.6px;
+      white-space:nowrap;
     }
 
     .logo span{
@@ -45,16 +46,19 @@
     }
 
     .nav-links{
-      margin-left:30px;
+      margin-left:60px; /* 👈 controlled right shift */
+      display:flex;
+      align-items:center;
+      gap:28px;
     }
 
     .nav-links a{
-      margin-right:26px;
       color:#ffffff;
       text-decoration:none;
       font-size:14px;
       font-weight:500;
       opacity:0.8;
+      white-space:nowrap;
     }
 
     .nav-links a:hover{
@@ -137,7 +141,7 @@
       background:rgba(255,255,255,0.08);
     }
 
-    /* ================= PRODUCT CARD ================= */
+    /* ================= PRODUCT ================= */
     .product{
       background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
       border:1px solid rgba(255,255,255,0.1);
@@ -164,16 +168,6 @@
       margin-bottom:22px;
     }
 
-    /* ================= FOOTER ================= */
-    footer{
-      padding:40px 10%;
-      text-align:center;
-      font-size:14px;
-      opacity:0.6;
-      border-top:1px solid rgba(255,255,255,0.08);
-      margin-top:90px;
-    }
-
     /* ================= MOBILE ================= */
     @media(max-width:900px){
 
@@ -181,15 +175,11 @@
         flex-direction:column;
         gap:14px;
         padding:18px 6%;
-        text-align:center;
       }
 
       .nav-links{
         margin-left:0;
-      }
-
-      .nav-links a{
-        margin:0 14px;
+        justify-content:center;
       }
 
       .hero{
@@ -236,7 +226,6 @@
 
   <div class="hero-text">
     <div class="badge">AI-Curated Digital Book</div>
-
     <h2>The Masterpiece</h2>
 
     <p>
@@ -262,7 +251,7 @@
 
 </section>
 
-<footer>
+<footer style="text-align:center; padding:40px; opacity:.6;">
   © 2026 Maelrix AI. All rights reserved.
 </footer>
 
