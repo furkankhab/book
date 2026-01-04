@@ -20,12 +20,12 @@
       color:#ffffff;
     }
 
-    /* HEADER */
-    header{
-      padding:20px 10%;
+    /* ================= HEADER ================= */
+    .site-header{
+      padding:22px 10%;
       display:flex;
-      justify-content:space-between;
       align-items:center;
+      gap:70px;
       background:rgba(255,255,255,0.03);
       backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(255,255,255,0.08);
@@ -34,34 +34,39 @@
       z-index:100;
     }
 
-    header h1{
+    .logo{
       font-size:22px;
       font-weight:700;
-      letter-spacing:0.5px;
+      letter-spacing:0.6px;
     }
 
-    header h1 span{
+    .logo span{
       color:#7cf3ff;
     }
 
-    nav a{
-      margin-left:26px;
+    .nav-links{
+      margin-left:30px;
+    }
+
+    .nav-links a{
+      margin-right:26px;
       color:#ffffff;
       text-decoration:none;
       font-size:14px;
+      font-weight:500;
       opacity:0.8;
     }
 
-    nav a:hover{
+    .nav-links a:hover{
       opacity:1;
     }
 
-    /* HERO */
+    /* ================= HERO ================= */
     .hero{
       padding:90px 10%;
       display:grid;
       grid-template-columns:1.1fr 0.9fr;
-      gap:60px;
+      gap:70px;
       align-items:center;
     }
 
@@ -72,26 +77,26 @@
       color:#7cf3ff;
       border-radius:30px;
       font-size:13px;
-      margin-bottom:20px;
+      margin-bottom:22px;
     }
 
     .hero-text h2{
-      font-size:52px;
+      font-size:50px;
       line-height:1.15;
-      margin-bottom:25px;
+      margin-bottom:22px;
     }
 
     .hero-text p{
       font-size:17px;
       line-height:1.8;
       opacity:0.85;
-      margin-bottom:35px;
+      margin-bottom:32px;
     }
 
     .price{
       font-size:26px;
       font-weight:600;
-      margin-bottom:35px;
+      margin-bottom:32px;
     }
 
     .price span{
@@ -110,7 +115,7 @@
       text-decoration:none;
       font-weight:600;
       font-size:15px;
-      transition:0.3s;
+      transition:0.3s ease;
     }
 
     .btn-primary{
@@ -132,12 +137,12 @@
       background:rgba(255,255,255,0.08);
     }
 
-    /* PRODUCT CARD */
+    /* ================= PRODUCT CARD ================= */
     .product{
       background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
       border:1px solid rgba(255,255,255,0.1);
       border-radius:18px;
-      padding:30px;
+      padding:32px;
       text-align:center;
       box-shadow:0 40px 80px rgba(0,0,0,0.6);
     }
@@ -145,7 +150,7 @@
     .product img{
       width:220px;
       border-radius:14px;
-      margin-bottom:25px;
+      margin-bottom:22px;
     }
 
     .product h3{
@@ -156,37 +161,45 @@
     .product p{
       font-size:14px;
       opacity:0.75;
-      margin-bottom:20px;
+      margin-bottom:22px;
     }
 
-    /* FOOTER */
+    /* ================= FOOTER ================= */
     footer{
       padding:40px 10%;
       text-align:center;
       font-size:14px;
       opacity:0.6;
       border-top:1px solid rgba(255,255,255,0.08);
-      margin-top:80px;
+      margin-top:90px;
     }
 
-    /* MOBILE */
+    /* ================= MOBILE ================= */
     @media(max-width:900px){
+
+      .site-header{
+        flex-direction:column;
+        gap:14px;
+        padding:18px 6%;
+        text-align:center;
+      }
+
+      .nav-links{
+        margin-left:0;
+      }
+
+      .nav-links a{
+        margin:0 14px;
+      }
+
       .hero{
         grid-template-columns:1fr;
         padding:70px 6%;
         text-align:center;
       }
 
-      nav{
-        text-align:center;
-      }
-
-      nav a{
-        margin:0 12px;
-      }
-
       .hero-text h2{
-        font-size:38px;
+        font-size:36px;
       }
 
       .hero-text p{
@@ -210,30 +223,29 @@
 
 <body>
 
-<header>
-  <h1>Maelrix<span>AI</span></h1>
-  <nav>
+<header class="site-header">
+  <h1 class="logo">Maelrix<span>AI</span></h1>
+
+  <nav class="nav-links">
     <a href="#">Home</a>
     <a href="#">Product</a>
-    <a href="#">Pricing</a>
-    <a href="#">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
 
   <div class="hero-text">
-    <div class="badge">AI Curated Digital Book</div>
+    <div class="badge">AI-Curated Digital Book</div>
 
     <h2>The Masterpiece</h2>
 
     <p>
-      A powerful and thought-provoking book designed for modern minds.
-      It explores the deepest layers of life, consciousness, and silence,
-      delivering clarity, reflection, and inner transformation with every page.
+      A thoughtfully crafted digital book for modern thinkers.
+      It explores life, awareness, and silence through a refined lens,
+      offering clarity, depth, and meaningful transformation with every chapter.
     </p>
 
-    <div class="price">Price: <span>₹149</span> (Lifetime Access)</div>
+    <div class="price">Price: <span>₹149</span> • Lifetime Access</div>
 
     <div class="actions">
       <a href="#" class="btn btn-primary">Buy Now</a>
@@ -244,7 +256,7 @@
   <div class="product">
     <img src="book.jpg" alt="The Masterpiece Book">
     <h3>The Masterpiece</h3>
-    <p>Digital Edition • Instant Access • Premium Content</p>
+    <p>Digital Edition • Instant Access • Carefully Curated Content</p>
     <a href="#" class="btn btn-primary">Purchase</a>
   </div>
 
