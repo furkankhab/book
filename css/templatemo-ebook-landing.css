@@ -570,6 +570,8 @@ strong {
   left: 0;
   pointer-events: none;
   background-color: rgba(0, 0, 0, 0.45);
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
 }
 
 .hero-section .row {
@@ -1054,5 +1056,6 @@ strong {
     padding: 5px 15px;
   }
 }
+
 
 
