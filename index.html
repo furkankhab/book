@@ -1,386 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Maelrix AI | Digital Book</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maelrix AI | Digital Knowledge Product</title>
 
-    <style>
-        /* ================= GLOBAL VARIABLES & RESET ================= */
-        :root {
-            --bg-dark: #0b0f19;
-            --bg-darker: #0e1424;
-            --accent: #7cf3ff;
-            --text-main: #ffffff;
-            --text-muted: rgba(255, 255, 255, 0.7);
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+<style>
+:root {
+  --neon-cyan: #7cf3ff;
+  --neon-purple: #9b8cff;
+  --bg-dark: #070a13;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
 
-        body {
-            background: linear-gradient(180deg, var(--bg-dark), var(--bg-darker));
-            color: var(--text-main);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+body{
+  background: var(--bg-dark);
+  color:#ffffff;
+  font-size: 14px; 
+  overflow-x: hidden;
+}
 
-        a { text-decoration: none; }
-        ul { list-style: none; }
+/* Background Ambient Glows */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: 
+    radial-gradient(circle at 10% 10%, rgba(124, 243, 255, 0.05), transparent 30%),
+    radial-gradient(circle at 90% 90%, rgba(155, 140, 255, 0.05), transparent 30%);
+  z-index: -1;
+}
 
-        /* ================= HEADER ================= */
-        .site-header {
-            padding: 20px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* ================= HEADER ================= */
+header{
+  padding:16px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(7, 10, 19, 0.8);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(124, 243, 255, 0.1);
+  position:sticky;
+  top:0;
+  z-index:200;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
+.logo{
+  font-size:24px;
+  font-weight:700;
+  letter-spacing:2px;
+  background:linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-cyan));
+  background-size: 200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: shine 4s linear infinite;
+}
 
-        .logo span {
-            color: var(--accent);
-        }
+@keyframes shine { to { background-position: 200% center; } }
 
-        .nav-links {
-            display: flex;
-            gap: 32px;
-        }
+.menu-btn{ font-size:20px; cursor:pointer; color: var(--neon-cyan); }
 
-        .nav-links a {
-            color: var(--text-main);
-            font-size: 14px;
-            font-weight: 500;
-            opacity: 0.7;
-            transition: 0.3s ease;
-        }
+.menu{
+  position:absolute;
+  top:65px;
+  right:6%;
+  background:rgba(10, 15, 30, 0.95);
+  border:1px solid rgba(124, 243, 255, 0.2);
+  border-radius:12px;
+  width:220px;
+  display:none;
+  flex-direction:column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
 
-        .nav-links a:hover {
-            opacity: 1;
-            color: var(--accent);
-        }
+.menu a{
+  padding:12px 16px;
+  text-decoration:none;
+  color:#ffffff;
+  font-size:13px;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
 
-        /* ================= HERO SECTION ================= */
-        .hero {
-            padding: 80px 6% 100px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+.menu a:hover{ background:rgba(124,243,255,0.1); color: var(--neon-cyan); }
 
-        /* TEXT CONTENT */
-        .badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(124, 243, 255, 0.1);
-            color: var(--accent);
-            border: 1px solid rgba(124, 243, 255, 0.2);
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 24px;
-        }
+/* ================= HERO ================= */
+.hero{
+  padding:70px 6% 30px; 
+  display:grid;
+  grid-template-columns:1fr 0.9fr;
+  gap:60px;
+  align-items:center;
+}
 
-        .hero-text h1 {
-            font-size: 56px;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, #a5f8ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+.badge{
+  display:inline-block;
+  padding:5px 12px;
+  background:rgba(124,243,255,0.1);
+  color: var(--neon-cyan);
+  border: 1px solid rgba(124,243,255,0.3);
+  border-radius:18px;
+  font-size:11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-        .hero-text p {
-            font-size: 18px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 32px;
-            max-width: 540px;
-        }
+.hero h2{
+  font-size:42px;
+  margin:16px 0;
+  line-height: 1.1;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
 
-        /* PRICING & BUTTONS */
-        .price-strip {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 24px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 32px;
-        }
+.hero p{
+  font-size:15px;
+  opacity:0.7;
+  line-height:1.8;
+  max-width:500px;
+}
 
-        .price-strip .price {
-            color: var(--accent);
-            font-size: 18px;
-        }
+.price{
+  margin-top:20px;
+  font-weight:600;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(255,255,255,0.9);
+}
 
-        .actions {
-            display: flex;
-            gap: 16px;
-        }
+.price span{ color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); }
 
-        .btn {
-            padding: 16px 36px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+.actions{
+  margin-top:28px;
+  display:flex;
+  gap:15px;
+}
 
-        .btn-primary {
-            background: var(--accent);
-            color: #0b0f19;
-            box-shadow: 0 4px 20px rgba(124, 243, 255, 0.15);
-        }
+.btn{
+  padding:14px 32px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(124, 243, 255, 0.3);
-            background: #ffffff;
-        }
+.primary{
+  background: var(--neon-cyan);
+  color:#000;
+  box-shadow: 0 0 20px rgba(124, 243, 255, 0.3);
+}
 
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-        }
+.primary:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(124, 243, 255, 0.5); }
 
-        .btn-secondary:hover {
-            border-color: #ffffff;
-            background: rgba(255, 255, 255, 0.05);
-        }
+.secondary{
+  border:1px solid rgba(255,255,255,0.2);
+  color:#ffffff;
+}
 
-        /* ================= 3D CSS BOOK COVER ================= */
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            perspective: 1000px;
-        }
+.secondary:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
 
-        .book-container {
-            width: 320px;
-            height: 480px;
-            position: relative;
-            transform-style: preserve-3d;
-            transform: rotateY(-25deg) rotateX(5deg);
-            transition: transform 0.5s ease;
-            box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
-        }
+/* ================= PRODUCT ================= */
+.product{
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:24px;
+  padding:40px;
+  text-align:center;
+  position: relative;
+}
 
-        .book-container:hover {
-            transform: rotateY(-15deg) rotateX(0deg) translateY(-10px);
-        }
+.product::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(45deg, transparent, rgba(124, 243, 255, 0.3), transparent);
+  border-radius: 24px;
+  z-index: -1;
+}
 
-        .book-cover {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1e2532 0%, #0e121d 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 2px 6px 6px 2px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            /* 3D Depth effect */
-            transform: translateZ(25px);
-        }
+.product img{
+  width:200px;
+  border-radius:12px;
+  filter: drop-shadow(0 0 30px rgba(124,243,255,0.2));
+  margin-bottom:20px;
+}
 
-        .book-spine {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 50px;
-            background: #0b0f19;
-            transform: rotateY(90deg) translateZ(-25px);
-            border-left: 1px solid rgba(255,255,255,0.1);
-        }
+/* ================= REVIEWS ================= */
+.reviews-wrap{ padding:40px 6% 10px; text-align:center; }
+.reviews-wrap h2{ font-size:32px; letter-spacing: -1px; }
 
-        .book-logo {
-            font-size: 32px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        
-        .book-subtitle {
-            color: var(--accent);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
+.reviews{
+  padding:40px 6% 60px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
 
-        .book-art {
-            margin-top: 40px;
-            width: 120px;
-            height: 120px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 30px rgba(124, 243, 255, 0.1);
-        }
+.review{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;
+  padding:25px;
+  transition: 0.3s;
+}
 
-        .book-art span { font-size: 40px; }
+.review:hover { background: rgba(255,255,255,0.06); transform: translateY(-5px); border-color: var(--neon-cyan); }
 
-        /* ================= FEATURES GRID ================= */
-        .features {
-            padding: 80px 6%;
-            background: var(--bg-darker);
-            border-top: 1px solid var(--glass-border);
-        }
+.review .stars{ color: var(--neon-cyan); margin-bottom:12px; }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+/* ================= THE TERMINAL REDESIGN (THE MIND-BLOWER) ================= */
 
-        .feature-card {
-            padding: 30px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            transition: 0.3s;
-        }
+.master-footer-section {
+  padding: 100px 6%;
+  background: radial-gradient(circle at center, rgba(155, 140, 255, 0.08), transparent 70%);
+}
 
-        .feature-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
+.terminal-interface {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(124, 243, 255, 0.15);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  backdrop-filter: blur(15px);
+}
 
-        .feature-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: #fff;
-        }
+/* Scanning Line Animation */
+.terminal-interface::before {
+  content: '';
+  position: absolute;
+  top: -100%; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(transparent, rgba(124, 243, 255, 0.05), transparent);
+  animation: scan 8s linear infinite;
+  pointer-events: none;
+}
 
-        .feature-card p {
-            font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
+@keyframes scan { to { top: 100%; } }
 
-        /* ================= RESPONSIVE ================= */
-        @media (max-width: 968px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 50px;
-                padding-top: 40px;
-            }
+.data-cell {
+  flex: 1;
+  padding: 50px;
+  position: relative;
+}
 
-            .hero-text h1 { font-size: 42px; }
-            .hero-text p { margin-left: auto; margin-right: auto; }
-            .actions { justify-content: center; }
-            
-            .nav-links { display: none; /* Hidden for simplicity on mobile */ }
-            
-            .hero-visual { padding-bottom: 40px; }
-        }
-    </style>
+.cell-border-decoration {
+  position: absolute;
+  width: 20px; height: 20px;
+  border: 2px solid var(--neon-cyan);
+}
+
+.top-left { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.bottom-right { bottom: 10px; right: 10px; border-left: none; border-top: none; opacity: 0.5;}
+
+.meta-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.main-val {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.sub-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--neon-purple);
+  opacity: 0.8;
+}
+
+/* Vertical Core Glow */
+.interface-divider {
+  width: 1px;
+  background: rgba(124, 243, 255, 0.2);
+  position: relative;
+}
+
+.interface-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px; height: 40px;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 15px var(--neon-cyan);
+  border-radius: 10px;
+}
+
+.upcoming-reveal-box {
+  background: rgba(124, 243, 255, 0.03);
+}
+
+.mystery-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 15px;
+  margin-top: 15px;
+  position: relative;
+  background: rgba(0,0,0,0.3);
+}
+
+.mystery-text::after {
+  content: 'ENCRYPTED';
+  position: absolute;
+  top: -8px; right: 10px;
+  font-size: 8px;
+  background: var(--bg-dark);
+  padding: 0 5px;
+  color: var(--neon-cyan);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  padding:40px 6%;
+  text-align:center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size:11px;
+  letter-spacing: 2px;
+  opacity: 0.4;
+}
+
+@media(max-width:900px){
+  .hero { grid-template-columns: 1fr; text-align: center; }
+  .actions { justify-content: center; }
+  .terminal-interface { flex-direction: column; }
+  .interface-divider { width: 100%; height: 1px; }
+}
+</style>
 </head>
+
 <body>
 
-    <header class="site-header">
-        <div class="logo">MAELRIX<span>AI</span></div>
-        <nav class="nav-links">
-            <a href="#">The Book</a>
-            <a href="#">Curriculum</a>
-            <a href="#">Author</a>
-            <a href="#">FAQ</a>
-        </nav>
-        <div style="color:white; display: none;" class="mobile-menu">☰</div>
-    </header>
+<header>
+  <div class="logo">MAELRIX AI</div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-    <main>
-        <section class="hero">
-            <div class="hero-text">
-                <span class="badge">UPDATED FOR 2026</span>
-                <h1>Architecting the Future of Intelligence</h1>
-                <p>
-                    A definitive guide to Large Language Models and Neural Architecture. 
-                    Written for senior engineers, covering theory, implementation, and ethics.
-                </p>
-                
-                <div class="price-strip">
-                    Digital Edition <span class="price">$29.00</span>
-                </div>
+  <div class="menu" id="menu">
+    <a href="#home">Home</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#">Download Book Preview</a>
+    <a href="https://wa.me/9657981973?text=Hi" target="_blank">Contact</a>
+  </div>
+</header>
 
-                <div class="actions">
-                    <a href="#" class="btn btn-primary">Get the Book</a>
-                    <a href="#" class="btn btn-secondary">Read Preview</a>
-                </div>
-            </div>
+<section class="hero" id="home">
+  <div>
+    <div class="badge">Neural-Link Digital Access</div>
+    <h2>Clarity. Growth. Perspective.</h2>
+    <p>
+      A powerful collection of the four most popular books in the world,
+      refined into one modern digital reading experience.
+    </p>
 
-            <div class="hero-visual">
-                <div class="book-container">
-                    <div class="book-spine"></div>
-                    <div class="book-cover">
-                        <div class="book-logo">MAELRIX</div>
-                        <div class="book-subtitle">Artificial Intelligence</div>
-                        <div class="book-art">
-                            <span>◈</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="price">ACCESS_NODE: <span>₹149</span> // LIFETIME</div>
 
-        <section class="features">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Deep Architecture</h3>
-                    <p>Understanding the layers behind the transformer models and how to optimize them for production environments.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Generative Logic</h3>
-                    <p>Master the algorithms that power text, image, and code generation with practical Python examples.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Ethical AI</h3>
-                    <p>A dedicated framework for building safe, unbiased, and compliant artificial intelligence systems.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+    <div class="actions">
+      <a href="#" class="btn primary">Buy Now</a>
+      <a href="#" class="btn secondary">Free PDF Preview</a>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="book.jpg" alt="Book Cover">
+    <div class="sub-val" style="margin-top:10px">SYSTEM_ID: PREM_EDITION</div>
+  </div>
+</section>
+
+<section class="reviews-wrap" id="reviews">
+  <h2>SYSTEM FEEDBACK</h2>
+  <p style="font-family: 'JetBrains Mono'; color: var(--neon-purple); font-size: 11px;">Verified Human Interactions</p>
+</section>
+
+<section class="reviews">
+  <div class="review">
+    <div class="stars">★★★★★</div>
+    <h4>Aman</h4>
+    <p>This book reshaped how I think about growth and discipline.</p>
+  </div>
+  <div class="review">
+    <div class="stars">★★★★★</div>
+    <h4>Sara</h4>
+    <p>Simple, refined, and incredibly practical.</p>
+  </div>
+  <div class="review">
+    <div class="stars">★★★★★</div>
+    <h4>Rohit</h4>
+    <p>A calm yet powerful reading experience.</p>
+  </div>
+</section>
+
+<section class="master-footer-section">
+  <div class="terminal-interface">
+    
+    <div class="data-cell">
+      <div class="cell-border-decoration top-left"></div>
+      <span class="meta-label">Architect_Profile</span>
+      <div class="main-val">Furkan Khan</div>
+      <div class="sub-val">Core Curator // System Architect</div>
+    </div>
+
+    <div class="interface-divider"></div>
+
+    <div class="data-cell upcoming-reveal-box">
+      <div class="cell-border-decoration bottom-right"></div>
+      <span class="meta-label">Data_Stream_Incoming</span>
+      <div class="sub-val" style="color: var(--neon-cyan)">PENDING DEPLOYMENT</div>
+      <div class="mystery-text">
+        <span style="color: var(--neon-cyan); font-weight: bold;">[CLASSIFIED]</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  MAELRIX_PROTOCOL © 2026 // ALL_RIGHTS_RESERVED
+</footer>
+
+<script>
+function toggleMenu(){
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+</script>
 
 </body>
 </html>
