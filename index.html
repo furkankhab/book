@@ -1,336 +1,420 @@
-<!DOCTYPE html>    
-<html lang="en">    
-<head>    
-<meta charset="UTF-8">    
-<meta name="viewport" content="width=device-width, initial-scale=1.0">    
-<title>Maelrix AI | Digital Knowledge Product</title>    
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">    
-    
-<style>    
-*{    
-  margin:0;    
-  padding:0;    
-  box-sizing:border-box;    
-  font-family:'Inter',sans-serif;    
-}    
-    
-body{    
-  background:#05070a;    
-  color:#ffffff;    
-  overflow-x: hidden;    
-}    
-    
-header{    
-  padding:15px 6%;    
-  display:flex;    
-  justify-content:space-between;    
-  align-items:center;    
-  background:rgba(5,7,10,0.8);    
-  backdrop-filter:blur(20px);    
-  border-bottom:1px solid rgba(255,255,255,0.05);    
-  position:sticky;    
-  top:0;    
-  z-index:200;    
-}    
-    
-.logo{    
-  font-size:24px;    
-  font-weight:800;    
-  letter-spacing:-0.5px;    
-  background:linear-gradient(90deg,#7cf3ff,#9b8cff);    
-  -webkit-background-clip:text;    
-  -webkit-text-fill-color:transparent;    
-}    
-    
-.menu-btn{ font-size:22px; cursor:pointer; opacity:0.8; }    
-    
-.menu{    
-  position:absolute;    
-  top:65px;    
-  right:6%;    
-  background:rgba(15,20,30,0.95);    
-  border:1px solid rgba(255,255,255,0.1);    
-  border-radius:16px;    
-  width:240px;    
-  display:none;    
-  flex-direction:column;    
-  overflow:hidden;    
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);    
-}    
-    
-.menu a{    
-  padding:15px 20px;    
-  text-decoration:none;    
-  color:#fff;    
-  font-size:14px;    
-  border-bottom:1px solid rgba(255,255,255,0.05);    
-  transition: 0.3s;    
-}    
-    
-.menu a:hover{ background:rgba(124,243,255,0.1); }    
-    
-.hero{    
-  padding:60px 8%;    
-  display:grid;    
-  grid-template-columns:1.2fr 0.8fr;    
-  gap:60px;    
-  align-items:center;    
-}    
-    
-.badge{    
-  display:inline-flex;    
-  align-items:center;    
-  gap:8px;    
-  padding:5px 12px;    
-  background:rgba(124,243,255,0.1);    
-  color:#7cf3ff;    
-  border-radius:100px;    
-  font-size:11px;    
-  font-weight:600;    
-  letter-spacing:1px;    
-  text-transform:uppercase;    
-  margin-bottom:20px;    
-}    
-    
-.hero h2{    
-  font-size: clamp(32px, 5vw, 56px);    
-  font-weight:800;    
-  line-height:1.1;    
-  margin-bottom:20px;    
-}    
-    
-.hero p{    
-  font-size:17px;    
-  color:rgba(255,255,255,0.6);    
-  line-height:1.6;    
-  max-width:480px;    
-}    
-    
-.price{ margin:25px 0; font-size:18px; font-weight:500; }    
-.price span{ color:#7cf3ff; font-weight:700; }    
-    
-.actions{ display:flex; gap:15px; }    
-    
-.btn{    
-  padding:16px 35px;    
-  border-radius:12px;    
-  text-decoration:none;    
-  font-weight:600;    
-  font-size:14px;    
-  transition:0.3s;    
-}    
-    
-.primary{ background:#7cf3ff; color:#000; box-shadow: 0 10px 20px rgba(124,243,255,0.2); }    
-.primary:hover{ transform:translateY(-2px); box-shadow: 0 15px 30px rgba(124,243,255,0.3); }    
-    
-.secondary{ border:1px solid rgba(255,255,255,0.1); color:#fff; }    
-.secondary:hover{ background:rgba(255,255,255,0.05); }    
-    
-.product{    
-  position:relative;    
-  display:flex;    
-  flex-direction:column;    
-  align-items:center;    
-}    
-    
-.product img{    
-  width:240px;    
-  border-radius:12px;    
-  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(124,243,255,0.1);    
-  margin-bottom:25px;    
-}    
-    
-.product h3{ font-size:18px; margin-bottom:5px; font-weight:600; }    
-.product p{ font-size:13px; color:rgba(255,255,255,0.4); }    
-    
-.reviews-section{ padding:80px 8%; border-top:1px solid rgba(255,255,255,0.05); }    
-.section-header{ text-align:center; margin-bottom:50px; }    
-.section-header h2{ font-size:32px; margin-bottom:10px; }    
-.section-header p{ color:rgba(255,255,255,0.5); font-size:14px; }    
-    
-.reviews-grid{    
-  display:grid;    
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));    
-  gap:20px;    
-}    
-    
-.review-card{    
-  background:rgba(255,255,255,0.03);    
-  padding:30px;    
-  border-radius:20px;    
-  border:1px solid rgba(255,255,255,0.05);    
-}    
-    
-.stars{ color:#f5c542; font-size:12px; margin-bottom:15px; letter-spacing:2px; }    
-    
-.signature-block {    
-  padding: 80px 8% 100px;    
-  display: flex;    
-  justify-content: center;    
-}    
-    
-.modern-reveal-card {    
-  width: 100%;    
-  max-width: 900px;    
-  background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);    
-  border: 1px solid rgba(255,255,255,0.08);    
-  border-radius: 32px;    
-  padding: 50px;    
-  display: grid;    
-  grid-template-columns: 1fr 1px 1fr;    
-  align-items: center;    
-  gap: 40px;    
-}    
-    
-.author-info h2 { font-size: 32px; font-weight: 800; margin-bottom: 5px; }    
-.author-info span {     
-    font-size: 12px;     
-    text-transform: uppercase;     
-    letter-spacing: 3px;     
-    color: #7cf3ff;     
-    font-weight: 600;     
-}    
-    
-.divider { background: rgba(255,255,255,0.1); height: 100px; }    
-    
-.upcoming-info { position: relative; }    
-.status-dot {    
-    display: inline-block;    
-    width: 8px;    
-    height: 8px;    
-    background: #9b8cff;    
-    border-radius: 50%;    
-    margin-right: 8px;    
-    box-shadow: 0 0 10px #9b8cff;    
-    animation: pulse 2s infinite;    
-}    
-    
-@keyframes pulse {    
-    0% { opacity: 1; }    
-    50% { opacity: 0.3; }    
-    100% { opacity: 1; }    
-}    
-    
-.upcoming-info small { color: rgba(255,255,255,0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }    
-.upcoming-info h3 { font-size: 20px; margin: 10px 0 5px; color: rgba(255,255,255,0.8); }    
-.reveal-title {    
-    font-size: 36px;    
-    font-weight: 900;    
-    background: linear-gradient(90deg, #fff, #9b8cff);    
-    -webkit-background-clip: text;    
-    -webkit-text-fill-color: transparent;    
-}    
-    
-footer{    
-  padding:40px;    
-  text-align:center;    
-  font-size:12px;    
-  color:rgba(255,255,255,0.3);    
-  border-top:1px solid rgba(255,255,255,0.05);    
-}    
-    
-@media(max-width:850px){    
-  .hero{ grid-template-columns: 1fr; text-align:center; padding-top:40px; }    
-  .hero p{ margin: 0 auto; }    
-  .actions{ justify-content:center; }    
-  .modern-reveal-card {     
-      grid-template-columns: 1fr;     
-      text-align: center;     
-      padding: 40px 20px;    
-      gap: 30px;    
-  }    
-  .divider { height: 1px; width: 60px; margin: 0 auto; }    
-}    
-</style>    
-</head>    
-<body>    
-    
-<header>    
-  <div class="logo">MaelrixAI</div>    
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>    
-  <div class="menu" id="menu">    
-    <a href="#home">Home</a>    
-    <a href="#reviews">Reviews</a>    
-    <a href="Preview.pdf">Download Preview</a>    
-    <a href="https://wa.me/9657981973?text=Hi" target="_blank">Contact</a>    
-  </div>    
-</header>    
-    
-<section class="hero" id="home">    
-  <div>    
-    <div class="badge"><span>✦</span> AI-Curated Digital Experience</div>    
-    <h2>Clarity. Growth. Perspective.</h2>    
-    <p>A powerful collection of the four most popular books in the world, refined into one modern reading experience.</p>    
-        
-    <div class="price"><span>₹149</span> &nbsp;•&nbsp; One-Click Checkout</div>    
-    
-    <div class="actions">    
-      <a href="https://store.pothi.com/book/furkan-khan-masterpiece/" target="_blank" class="btn primary">Buy Now</a>    
-      <a href="Preview.pdf" download class="btn secondary">Preview</a>    
-    </div>    
-  </div>    
-    
-  <div class="product">    
-    <img src="book.png" alt="Book Cover">    
-    <h3>Premium Edition</h3>    
-    <p>COD Available • 5-7 Day Delivery</p>    
-  </div>    
-</section>    
-    
-<section class="reviews-section" id="reviews">    
-  <div class="section-header">    
-    <h2>What Readers Say</h2>    
-    <p>Verified purchase reviews from our community</p>    
-  </div>    
-      
-  <div class="reviews-grid">    
-    <div class="review-card">    
-      <div class="stars">★★★★★</div>    
-      <h4>Aman</h4>    
-      <p style="opacity:0.7; font-size:14px; line-height:1.5;">This book reshaped how I think about growth and discipline.</p>    
-    </div>    
-    <div class="review-card">    
-      <div class="stars">★★★★★</div>    
-      <h4>Sara</h4>    
-      <p style="opacity:0.7; font-size:14px; line-height:1.5;">Simple, refined, and incredibly practical. A must-read.</p>    
-    </div>    
-    <div class="review-card">    
-      <div class="stars">★★★★★</div>    
-      <h4>Rohit</h4>    
-      <p style="opacity:0.7; font-size:14px; line-height:1.5;">A calm yet powerful reading experience. Perfectly curated.</p>    
-    </div>    
-  </div>    
-</section>    
-    
-<section class="signature-block">    
-  <div class="modern-reveal-card">    
-    <div class="author-info">    
-      <span>The Visionary</span>    
-      <h2>Furkan Khan</h2>    
-      <p style="opacity:0.5; font-size:13px; margin-top:5px;">Writer & Curator</p>    
-    </div>    
-    
-    <div class="divider"></div>    
-    
-    <div class="upcoming-info">    
-      <div class="status-dot"></div>    
-      <small>Future Release</small>    
-      <h3>Only the Name Revealed</h3>    
-      <div class="reveal-title">Beyond the Lives</div>    
-    </div>    
-  </div>    
-</section>    
-    
-<footer>    
-  © 2026 Maelrix AI. Engineered for Growth.    
-</footer>    
-    
-<script>    
-function toggleMenu(){    
-  const menu = document.getElementById('menu');    
-  menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';    
-}    
-</script>    
-    
-</body>    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maelrix AI | Digital Knowledge Product</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Page metadata -->
+<meta name="description" content="Maelrix AI — Clarity. Growth. Perspective. A curated reading experience." />
+<meta name="theme-color" content="#071019" />
+
+<style>
+:root{
+  --bg-900: #05070a;
+  --glass: rgba(255,255,255,0.04);
+  --muted: rgba(255,255,255,0.6);
+  --accent-a: #7cf3ff;
+  --accent-b: #9b8cff;
+  --accent-grad: linear-gradient(90deg,var(--accent-a),var(--accent-b));
+  --card: rgba(255,255,255,0.03);
+  --glass-2: rgba(255,255,255,0.02);
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --shadow-lg: 0 30px 60px rgba(0,0,0,0.6);
+  font-synthesis: none;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+body{
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(124,243,255,0.04), transparent),
+              radial-gradient(900px 450px at 90% 80%, rgba(155,140,255,0.03), transparent),
+              var(--bg-900);
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  line-height:1.45;
+}
+
+/* page wrapper */
+.container{ max-width:1200px; margin:0 auto; padding:22px 6%; }
+
+/* header */
+header{
+  position:sticky; top:14px; z-index:300;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:18px;
+}
+.header-inner{
+  width:100%;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+  padding:14px 18px;
+  border-radius:14px;
+  display:flex; align-items:center; justify-content:space-between;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+
+/* logo */
+.logo{
+  display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;
+}
+.logo-badge{
+  width:44px; height:44px; border-radius:10px;
+  background: linear-gradient(135deg, rgba(124,243,255,0.18), rgba(155,140,255,0.12));
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 8px 20px rgba(124,243,255,0.06), inset 0 -6px 18px rgba(0,0,0,0.35);
+  font-weight:800; font-size:18px; color:var(--accent-a);
+}
+.logo-text{ font-weight:800; letter-spacing:-0.6px; font-size:18px;
+  background: var(--accent-grad);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+
+/* nav */
+.nav{ display:flex; gap:14px; align-items:center; }
+.nav a{
+  color:rgba(255,255,255,0.8);
+  text-decoration:none; font-weight:600; font-size:14px;
+  padding:10px 12px; border-radius:10px;
+}
+.nav a.cta{
+  background:var(--accent-a); color:#041216; padding:10px 14px; box-shadow: 0 10px 28px rgba(124,243,255,0.08);
+  border-radius:12px;
+}
+.nav a:hover{ transform:translateY(-2px); transition:all .24s ease; }
+
+/* mobile menu */
+.menu-btn{ display:none; cursor:pointer; background:transparent; border:0; font-size:20px; }
+
+/* hero */
+.hero{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:40px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-flex; gap:10px; align-items:center;
+  padding:6px 12px; border-radius:999px; font-weight:700; font-size:12px;
+  color:var(--accent-a); background: linear-gradient(90deg, rgba(124,243,255,0.06), rgba(155,140,255,0.03));
+  border:1px solid rgba(124,243,255,0.06);
+  width:max-content;
+}
+
+.hero-left h1{
+  font-size: clamp(34px, 4.8vw, 56px);
+  font-weight:900; margin:18px 0; line-height:1.02;
+  background: linear-gradient(90deg, #fff, #cfc8ff 70%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  letter-spacing:-0.4px;
+}
+
+.lead{
+  color:var(--muted); max-width:640px; font-size:17px; margin-bottom:18px;
+}
+
+/* price row */
+.price-row{ display:flex; gap:18px; align-items:center; margin:18px 0; }
+.price{
+  background: linear-gradient(90deg, rgba(123,243,255,0.06), rgba(155,140,255,0.04));
+  padding:10px 14px; border-radius:12px; font-weight:700; display:flex; gap:8px; align-items:center;
+}
+.price small{ color:var(--muted); font-weight:500; font-size:13px; }
+
+/* actions */
+.actions{ display:flex; gap:14px; margin-top:6px; }
+.btn{
+  display:inline-flex; align-items:center; gap:10px; cursor:pointer; border:0;
+  padding:14px 20px; border-radius:12px; font-weight:700; font-size:15px; text-decoration:none;
+}
+.btn.primary{
+  background:var(--accent-a); color:#031015; box-shadow: 0 24px 50px rgba(124,243,255,0.08);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.btn.primary:hover{ transform:translateY(-4px); box-shadow: 0 34px 70px rgba(124,243,255,0.12); }
+.btn.ghost{
+  background:transparent; border:1px solid rgba(255,255,255,0.06); color:rgba(255,255,255,0.95);
+}
+
+/* product card (right) */
+.product{
+  position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:22px; border-radius:18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border:1px solid rgba(255,255,255,0.04);
+  box-shadow: var(--shadow-lg);
+}
+.book-wrap{ position:relative; perspective:1200px; }
+.book{
+  width:260px; height:auto; border-radius:12px; transition: transform .45s cubic-bezier(.16,.84,.32,1), box-shadow .45s;
+  transform-origin:center center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(124,243,255,0.06);
+}
+.product h3{ margin-top:18px; font-size:18px; font-weight:800; }
+.product p{ color:var(--muted); font-size:13px; margin-top:6px; }
+
+/* floating accent shapes */
+.accent-blob{
+  position:absolute; border-radius:50%; filter: blur(40px); opacity:0.28;
+  pointer-events:none; z-index:0;
+}
+.blob-a{ width:300px; height:300px; right:-60px; top:-80px; background:linear-gradient(135deg,var(--accent-a), rgba(124,243,255,0.04)); }
+.blob-b{ width:240px; height:240px; left:-70px; bottom:-80px; background:linear-gradient(135deg,var(--accent-b), rgba(155,140,255,0.04)); }
+
+/* reviews */
+.reviews-section{ margin:64px 0; padding:34px; border-radius:16px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.03); }
+.section-header{ text-align:center; margin-bottom:26px; }
+.section-header h2{ font-size:24px; font-weight:800; margin-bottom:8px; }
+.section-header p{ color:var(--muted); font-size:14px; }
+
+.reviews-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;
+}
+.review-card{
+  padding:18px; border-radius:14px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+/* signature block */
+.signature-block{ margin:48px 0; display:flex; justify-content:center; }
+.modern-reveal-card{
+  width:100%; max-width:980px; padding:26px; border-radius:22px;
+  display:grid; grid-template-columns:1fr 1px 1fr; gap:28px; align-items:center;
+  border:1px solid rgba(255,255,255,0.03); background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+.author-info h2{ font-size:26px; font-weight:900; margin-bottom:8px; }
+.author-info span{ font-size:12px; text-transform:uppercase; color:var(--accent-a); letter-spacing:2px; font-weight:700; }
+.divider{ width:100%; height:100px; background:linear-gradient(180deg, rgba(255,255,255,0.03), transparent); justify-self:center; border-radius:8px; opacity:0.9; }
+
+/* footer */
+footer{ margin:44px 0 120px; text-align:center; color:rgba(255,255,255,0.35); font-size:13px; }
+
+/* small screens */
+@media (max-width:980px){
+  .hero{ grid-template-columns:1fr; text-align:center; }
+  .product{ order:-1; margin-bottom:12px; }
+  .nav{ display:none; }
+  .menu-btn{ display:inline-flex; padding:6px 8px; }
+  .modern-reveal-card{ grid-template-columns:1fr; text-align:center; gap:18px; padding:20px; }
+  .divider{ height:1px; width:60px; margin:0 auto; background:rgba(255,255,255,0.03); }
+}
+
+/* small polish: tiny animations */
+.fade-up{ transform: translateY(10px); opacity:0; animation:fadeUp .7s forwards; }
+.fade-up.delay-1{ animation-delay:.08s; }
+.fade-up.delay-2{ animation-delay:.14s; }
+@keyframes fadeUp{
+  to{ transform:none; opacity:1; }
+}
+
+/* subtle pulse for CTA */
+@keyframes pulseAccent {
+  0% { box-shadow: 0 8px 24px rgba(124,243,255,0.06); transform:scale(1); }
+  50% { box-shadow: 0 22px 60px rgba(124,243,255,0.12); transform:scale(1.02); }
+  100% { box-shadow: 0 8px 24px rgba(124,243,255,0.06); transform:scale(1); }
+}
+
+.btn.primary.pulse{ animation: pulseAccent 3s infinite; }
+
+/* small hover tilt for book (desktop only) */
+@media(min-width:981px){
+  .book:hover{ transform: rotateX(6deg) rotateY(-8deg) translateY(-6px) scale(1.02); box-shadow: 0 48px 90px rgba(0,0,0,0.7), 0 0 60px rgba(124,243,255,0.06); }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="header-inner fade-up">
+      <a class="logo" href="#">
+        <div class="logo-badge">M</div>
+        <div class="logo-text">MaelrixAI</div>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#reviews">Reviews</a>
+        <a href="Preview.pdf" download class="ghost">Preview</a>
+        <a class="cta" href="https://store.pothi.com/book/furkan-khan-masterpiece/" target="_blank">Buy Now</a>
+      </nav>
+
+      <button class="menu-btn" aria-expanded="false" id="menuBtn">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-left fade-up delay-1">
+        <div class="badge">✦ AI-Curated Experience</div>
+        <h1>Clarity. Growth. Perspective.</h1>
+        <p class="lead">A powerful collection of the world's most influential books — refined and curated into one modern reading experience to accelerate learning and focus.</p>
+
+        <div class="price-row">
+          <div class="price">
+            <div style="font-size:18px;">₹149</div>
+            <small>One-click checkout</small>
+          </div>
+
+          <div style="display:flex; gap:10px; align-items:center;">
+            <div style="font-size:13px; color:var(--muted);">COD Available • 5–7 day delivery</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary pulse" href="https://store.pothi.com/book/furkan-khan-masterpiece/" target="_blank">Buy Now</a>
+          <a class="btn ghost" href="Preview.pdf" download>Download Preview</a>
+        </div>
+
+        <div style="margin-top:18px; display:flex; gap:12px; align-items:center;">
+          <div style="font-size:13px; color:var(--muted);">Trusted by readers across India</div>
+          <div style="height:1px; width:1px; visibility:hidden;"></div>
+        </div>
+      </div>
+
+      <div class="product fade-up delay-2" aria-hidden="false">
+        <div class="book-wrap">
+          <img src="book.png" alt="Book Cover" class="book" />
+        </div>
+        <h3>Premium Edition</h3>
+        <p>Curated by Furkan Khan — concise, powerful, actionable.</p>
+
+        <!-- subtle floating blobs -->
+        <div class="accent-blob blob-a" aria-hidden="true"></div>
+        <div class="accent-blob blob-b" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="reviews" class="reviews-section">
+      <div class="section-header">
+        <h2>What Readers Say</h2>
+        <p>Verified purchase reviews from our community</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card fade-up">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,var(--accent-a), var(--accent-b)); display:flex; align-items:center; justify-content:center; font-weight:800;">A</div>
+            <div>
+              <div style="font-weight:800;">Aman</div>
+              <div style="color:var(--muted); font-size:13px;">★★★★★</div>
+            </div>
+          </div>
+          <p style="margin-top:12px; color:var(--muted);">This book reshaped how I think about growth and discipline. Highly recommended for focused learning.</p>
+        </div>
+
+        <div class="review-card fade-up">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,var(--accent-b), var(--accent-a)); display:flex; align-items:center; justify-content:center; font-weight:800;">S</div>
+            <div>
+              <div style="font-weight:800;">Sara</div>
+              <div style="color:var(--muted); font-size:13px;">★★★★★</div>
+            </div>
+          </div>
+          <p style="margin-top:12px; color:var(--muted);">Simple, refined, and incredibly practical. A must-read for anyone building systems in life or work.</p>
+        </div>
+
+        <div class="review-card fade-up">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,var(--accent-a), rgba(255,255,255,0.06)); display:flex; align-items:center; justify-content:center; font-weight:800;">R</div>
+            <div>
+              <div style="font-weight:800;">Rohit</div>
+              <div style="color:var(--muted); font-size:13px;">★★★★★</div>
+            </div>
+          </div>
+          <p style="margin-top:12px; color:var(--muted);">A calm yet powerful reading experience. The condensation of ideas is excellent.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="signature-block">
+      <div class="modern-reveal-card fade-up">
+        <div class="author-info">
+          <span>The Visionary</span>
+          <h2>Furkan Khan</h2>
+          <p style="color:var(--muted); margin-top:6px;">Writer & Curator — refining classic wisdom for modern readers.</p>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="upcoming-info">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div style="width:10px; height:10px; border-radius:999px; background:var(--accent-b); box-shadow:0 0 12px var(--accent-b);"></div>
+            <small style="color:var(--muted); text-transform:uppercase; letter-spacing:2px;">Future Release</small>
+          </div>
+          <h3 style="margin-top:8px; color:rgba(255,255,255,0.86);">Only the Name Revealed</h3>
+          <div style="font-size:30px; font-weight:900; background:var(--accent-grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-top:8px;">Beyond the Lives</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Maelrix AI. Engineered for Growth.
+  </footer>
+</div>
+
+<!-- mobile nav overlay -->
+<div id="mobileNav" style="position:fixed; inset:0; display:none; z-index:800; background:linear-gradient(180deg, rgba(5,7,10,0.8), rgba(5,7,10,0.9));">
+  <div style="max-width:600px; margin:80px auto; padding:22px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border:1px solid rgba(255,255,255,0.03);">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <div style="display:flex; gap:12px; align-items:center;">
+        <div class="logo-badge">M</div>
+        <div style="font-weight:800;">MaelrixAI</div>
+      </div>
+      <button id="closeNav" style="background:transparent; color:#fff; border:0; font-size:20px;">✕</button>
+    </div>
+    <nav style="display:flex; flex-direction:column; gap:10px;">
+      <a href="#home" style="padding:12px; border-radius:8px; text-decoration:none; color:#fff;">Home</a>
+      <a href="#reviews" style="padding:12px; border-radius:8px; text-decoration:none; color:#fff;">Reviews</a>
+      <a href="Preview.pdf" download style="padding:12px; border-radius:8px; text-decoration:none; color:#fff;">Preview</a>
+      <a href="https://wa.me/9657981973?text=Hi" target="_blank" style="padding:12px; border-radius:8px; text-decoration:none; color:#fff;">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<script>
+  // simple menu toggle for mobile
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  const closeNav = document.getElementById('closeNav');
+
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = mobileNav.style.display === 'block';
+    mobileNav.style.display = isOpen ? 'none' : 'block';
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  closeNav?.addEventListener('click', () => mobileNav.style.display = 'none');
+
+  // small entrance animation trigger on load
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-up').forEach((el, i) => {
+      el.style.animationDelay = (i * 70) + 'ms';
+      el.classList.add('visible');
+    });
+  });
+
+  // optional: tiny parallax on mouse for book image
+  const book = document.querySelector('.book');
+  document.querySelector('.book-wrap')?.addEventListener('mousemove', (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    if (book) book.style.transform = `rotateX(${ -y * 8 }deg) rotateY(${ x * 12 }deg) translateZ(6px)`;
+  });
+  document.querySelector('.book-wrap')?.addEventListener('mouseleave', () => {
+    if (book) book.style.transform = '';
+  });
+</script>
+
+</body>
 </html>
