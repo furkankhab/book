@@ -419,11 +419,29 @@
             box-shadow: 0 10px 40px var(--shadow-soft);
             border: 1px solid var(--border-color);
             transition: transform 0.4s ease;
+            position: relative;
         }
 
         .book-card:hover {
             transform: translateY(-10px) rotateY(5deg);
             box-shadow: 0 20px 60px var(--shadow-medium);
+        }
+
+        .sponsored-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-light);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
 
         .book-cover {
@@ -828,6 +846,11 @@
             .section-header h2 {
                 font-size: 1.8rem;
             }
+
+            .sponsored-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.8rem;
+            }
         }
 
         /* Scroll Animations */
@@ -932,6 +955,7 @@
             <div class="hero-image">
                 <div class="book-showcase">
                     <div class="book-card">
+                        <div class="sponsored-badge">Sponsored</div>
                         <div class="book-cover has-image">
                             <img src="book.png" alt="The Masterpiece Book Cover" onerror="this.style.display='none'; this.parentElement.classList.remove('has-image'); this.parentElement.innerHTML='<span>The Masterpiece</span>'">
                         </div>
@@ -974,7 +998,7 @@
                 </div>
             </div>
             <div class="book-item fade-in">
-                <span class="book-badge coming-soon-badge">Coming Soon • 2025</span>
+                <span class="book-badge coming-soon-badge">Coming Soon • 2026</span>
                 <h3>Beyond the Lives</h3>
                 <div class="book-cover mystery-cover" style="margin-bottom: 1.5rem;"></div>
                 <p class="book-description">
