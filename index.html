@@ -745,6 +745,172 @@ footer { background:var(--ink); color:var(--parchment); padding:72px 48px 40px; 
 .footer-copy strong { color:var(--amber); font-weight:500; }
 .footer-disc { font-size:0.65rem; color:rgba(245,239,224,0.25); max-width:500px; line-height:1.6; }
 
+/* ─── OWN WORKS SPOTLIGHT ─── */
+.own-works-spotlight {
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, var(--ink) 0%, #2E1A08 100%);
+  border-radius: 16px;
+  padding: 28px 28px 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 28px rgba(28,21,9,0.22);
+}
+.own-works-spotlight::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(200,135,42,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.own-works-label {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 700; color: var(--amber-pale);
+  margin-bottom: 20px;
+  padding: 5px 12px;
+  background: rgba(200,135,42,0.1);
+  border: 1px solid rgba(200,135,42,0.22);
+  border-radius: 100px;
+}
+.own-works-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.own-work-card {
+  background: rgba(255,252,247,0.05);
+  border: 1px solid rgba(200,135,42,0.18);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+.own-work-card:hover {
+  border-color: rgba(200,135,42,0.45);
+  background: rgba(255,252,247,0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(28,21,9,0.35);
+}
+.own-work-cover-col { position: relative; }
+.own-work-cover-wrap {
+  position: relative;
+  width: 100px;
+  height: 100%;
+  min-height: 170px;
+  overflow: hidden;
+}
+.own-work-img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.own-work-body {
+  padding: 16px 16px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+.own-work-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.56rem; font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: rgba(200,135,42,0.1);
+  border: 1px solid rgba(200,135,42,0.2);
+  padding: 3px 9px; border-radius: 100px;
+  width: fit-content;
+}
+.own-work-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700; color: var(--parchment);
+  line-height: 1.15; margin: 4px 0 2px;
+}
+.own-work-author {
+  font-size: 0.72rem; color: rgba(245,239,224,0.5);
+  font-style: italic;
+}
+.own-work-pills {
+  display: flex; flex-wrap: wrap; gap: 5px;
+  margin: 4px 0;
+}
+.own-work-pill {
+  font-size: 0.6rem; font-weight: 500;
+  color: rgba(245,239,224,0.6);
+  background: rgba(255,252,247,0.06);
+  border: 1px solid rgba(245,239,224,0.1);
+  padding: 3px 8px; border-radius: 100px;
+}
+.own-work-card .card-divider {
+  border-color: rgba(200,135,42,0.12);
+  margin: 6px 0;
+}
+.own-work-card .price-curr { color: var(--amber-light); font-size: 1.1rem; }
+.own-work-card .price-sym { font-size: 0.78rem; }
+.own-work-card .disc-badge { background: rgba(200,135,42,0.15); color: var(--amber-pale); font-size: 0.58rem; }
+.btn-buy-own {
+  background: linear-gradient(135deg, var(--walnut), var(--amber)) !important;
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  font-size: 0.68rem !important;
+  padding: 9px 14px !important;
+  flex: 1;
+}
+.btn-buy-own:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.btn-outline-small {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 8px 12px; border: 1.5px solid rgba(245,239,224,0.18);
+  border-radius: 6px; color: rgba(245,239,224,0.55);
+  background: transparent; font-size: 0.66rem; font-weight: 500;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s; white-space: nowrap;
+}
+.btn-outline-small:hover { border-color: var(--amber); color: var(--amber); background: rgba(200,135,42,0.07); }
+.own-work-card .card-rating { margin: 0; }
+.own-work-card .card-rating .stars { color: var(--amber); font-size: 0.75rem; }
+.own-work-card .card-rating .rating-count { color: rgba(245,239,224,0.38); font-size: 0.66rem; }
+.own-work-card .card-actions { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
+.own-work-card .price-row { margin: 0; align-items: center; }
+
+.books-grid-label { margin-bottom: 0; }
+
+/* ─── IMPROVED BOOK CARD UX ─── */
+.book-card {
+  border-radius: 14px;
+  transition: transform 0.28s cubic-bezier(.25,.8,.25,1), box-shadow 0.28s, border-color 0.2s;
+}
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(28,21,9,0.18);
+}
+.btn-buy-card {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 20px; border-radius: 8px;
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.8px;
+  transition: all 0.2s; text-decoration: none;
+}
+.btn-buy-card svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+.btn-buy-card:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(28,21,9,0.2); }
+
+/* ─── FILTER BAR UX ─── */
+.filter-pill {
+  padding: 9px 20px; border-radius: 100px;
+  font-size: 0.73rem; font-weight: 600; letter-spacing: 0.5px;
+  transition: all 0.2s;
+}
+.filter-pill:hover { transform: translateY(-1px); }
+
+@media(max-width:900px) {
+  .own-works-grid { grid-template-columns: 1fr; }
+  .own-work-card { grid-template-columns: 110px 1fr; }
+}
+@media(max-width:600px) {
+  .own-work-card { grid-template-columns: 90px 1fr; }
+  .own-work-cover-wrap { min-height: 150px; }
+  .own-works-spotlight { padding: 20px 16px 24px; }
+}
+
 /* ─── SCROLL TO TOP ─── */
 .scroll-top {
   position:fixed; bottom:28px; right:28px; z-index:500;
@@ -821,10 +987,7 @@ footer { background:var(--ink); color:var(--parchment); padding:72px 48px 40px; 
 <!-- Scroll Top -->
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<!-- ─── ANNOUNCEMENT BAR ─── -->
-<div class="announce-bar">
-  ✨ New arrivals this season — <span>Free bookmarks</span> with every Pothi order &nbsp;|&nbsp; Use code <span>READER10</span> for 10% off
-</div>
+
 
 <!-- ─── HEADER ─── -->
 <header>
@@ -876,19 +1039,7 @@ footer { background:var(--ink); color:var(--parchment); padding:72px 48px 40px; 
       </a>
       <a href="#reading-room" class="btn-outline">Find Your Next Book →</a>
     </div>
-    <div class="hero-social-proof">
-      <div class="proof-avatars">
-        <div class="proof-avatar" style="background:var(--parchment-dark);color:var(--walnut)">R</div>
-        <div class="proof-avatar" style="background:#d4e8d0;color:var(--sage)">A</div>
-        <div class="proof-avatar" style="background:#e8d8c0;color:var(--walnut)">S</div>
-        <div class="proof-avatar" style="background:#d0d8e8;color:#4a5a80">P</div>
-      </div>
-      <div class="proof-text">
-        <div class="proof-stars">★★★★★</div>
-        <div><strong>200+ readers</strong> love our curation</div>
-      </div>
-    </div>
-  </div>
+  </div><!-- end hero-left -->
   <div class="hero-right">
     <div class="hero-book-stack">
       <div class="hb hb-3">
@@ -975,58 +1126,124 @@ footer { background:var(--ink); color:var(--parchment); padding:72px 48px 40px; 
     <button class="filter-pill" data-filter="mind">Mind &amp; Science</button>
   </div>
 
-  <div class="books-grid">
-
-    <!-- FEATURED: Small Turnings -->
-    <div class="book-card featured-card" data-genre="poetry">
-      <div class="book-cover-wrap">
-        <span class="badge badge-featured">Featured</span>
-        <button class="wishlist-btn" onclick="toggleWishlist(this,'Small Turnings')">
-          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </button>
-        <img src="https://raw.githubusercontent.com/furkankhab/book/main/book1.png" alt="Small Turnings" class="book-cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="cover-placeholder cp-1" style="display:none">
-          <div class="cp-icon">🌿</div>
-          <div class="cp-line"></div>
-          <div class="cp-title">Small Turnings</div>
-          <div class="cp-author">Furkan Khan</div>
-        </div>
-        <div class="quick-peek">
-          <div class="peek-title">Small Turnings</div>
-          <div class="peek-desc">A poetry collection exploring quiet moments, personal growth, and the beauty of small changes that shape a life.</div>
-          <div class="peek-actions">
-            <a href="https://store.pothi.com/book/furkan-khan-small-turnings/" target="_blank" class="peek-btn peek-buy">Buy Now</a>
-            <button class="peek-btn peek-save" onclick="toggleWishlist(null,'Small Turnings')">♡ Save</button>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="feat-tag">
-          <svg viewBox="0 0 24 24" width="12" height="12" fill="var(--amber)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Newest Original Work
-        </div>
-        <div class="book-title">Small Turnings</div>
-        <div class="book-author">by Furkan Khan</div>
-        <div class="card-rating">
-          <span class="stars">★★★★★</span>
-          <span class="rating-count">(24 reviews)</span>
-        </div>
-        <div class="card-divider"></div>
-        <p class="feat-desc">A deeply personal collection of poetry that speaks to the small, quiet pivots in life — the moments of turning that change everything. Perfect for the reflective reader who finds meaning in simplicity.</p>
-        <div class="price-row">
-          <div class="price-wrap">
-            <span class="price-curr"><span class="price-sym">₹</span>215</span>
-          </div>
-          <span class="disc-badge">Bestseller</span>
-        </div>
-        <div class="card-actions">
-          <a href="https://store.pothi.com/book/furkan-khan-small-turnings/" target="_blank" class="btn-buy-card">
-            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
-            Order on Pothi
-          </a>
-        </div>
-      </div>
+  <!-- ── AUTHOR'S OWN WORKS — SPECIAL SPOTLIGHT ── -->
+  <div class="own-works-spotlight">
+    <div class="own-works-label">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="var(--amber)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Furkan Khan's Original Works — Exclusively Yours
     </div>
+    <div class="own-works-grid">
+
+      <!-- Small Turnings -->
+      <div class="own-work-card">
+        <div class="own-work-cover-col">
+          <div class="own-work-cover-wrap">
+            <span class="badge badge-featured" style="position:absolute;top:14px;left:14px;z-index:2">Featured</span>
+            <button class="wishlist-btn" onclick="toggleWishlist(this,'Small Turnings')">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+            <img src="https://raw.githubusercontent.com/furkankhab/book/main/book1.png" alt="Small Turnings" class="own-work-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="cover-placeholder cp-1" style="display:none;height:100%">
+              <div class="cp-icon">🌿</div><div class="cp-line"></div>
+              <div class="cp-title">Small Turnings</div><div class="cp-author">Furkan Khan</div>
+            </div>
+          </div>
+        </div>
+        <div class="own-work-body">
+          <div class="own-work-tag">
+            <svg viewBox="0 0 24 24" width="11" height="11" fill="var(--amber)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Poetry · Original Work
+          </div>
+          <div class="own-work-title">Small Turnings</div>
+          <div class="own-work-author">by Furkan Khan</div>
+          <div class="card-rating" style="margin:10px 0 14px">
+            <span class="stars">★★★★★</span>
+            <span class="rating-count">(24 reviews)</span>
+          </div>
+          <div class="own-work-pills">
+            <span class="own-work-pill">🌿 Reflective</span>
+            <span class="own-work-pill">✍️ Poetry</span>
+            <span class="own-work-pill">📖 Pothi Original</span>
+          </div>
+          <div class="card-divider"></div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price-curr"><span class="price-sym">₹</span>215</span>
+            </div>
+            <span class="disc-badge">Bestseller</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://store.pothi.com/book/furkan-khan-small-turnings/" target="_blank" class="btn-buy-card btn-buy-own">
+              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+              Order on Pothi
+            </a>
+            <button class="btn-outline-small" onclick="toggleWishlist(null,'Small Turnings')">
+              <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Masterpiece -->
+      <div class="own-work-card">
+        <div class="own-work-cover-col">
+          <div class="own-work-cover-wrap">
+            <span class="badge" style="background:linear-gradient(135deg,#8B2020,#C8872A);color:#fff;position:absolute;top:14px;left:14px;z-index:2;font-size:0.58rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Masterpiece</span>
+            <button class="wishlist-btn" onclick="toggleWishlist(this,'The Masterpiece')">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+            <img src="https://raw.githubusercontent.com/furkankhab/book/main/book5.png" alt="The Masterpiece" class="own-work-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="cover-placeholder cp-5" style="display:none;height:100%">
+              <div class="cp-icon">✨</div><div class="cp-line"></div>
+              <div class="cp-title">The Masterpiece</div><div class="cp-author">Furkan Khan</div>
+            </div>
+          </div>
+        </div>
+        <div class="own-work-body">
+          <div class="own-work-tag" style="color:var(--crimson);border-color:rgba(139,32,32,0.25);background:rgba(139,32,32,0.06)">
+            <svg viewBox="0 0 24 24" width="11" height="11" fill="var(--crimson)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Prose & Poetry · Flagship Work
+          </div>
+          <div class="own-work-title">The Masterpiece</div>
+          <div class="own-work-author">by Furkan Khan</div>
+          <div class="card-rating" style="margin:10px 0 14px">
+            <span class="stars">★★★★★</span>
+            <span class="rating-count">(19 reviews)</span>
+          </div>
+          <div class="own-work-pills">
+            <span class="own-work-pill">✨ Ambition</span>
+            <span class="own-work-pill">🎨 Artistry</span>
+            <span class="own-work-pill">📖 Pothi Original</span>
+          </div>
+          <div class="card-divider"></div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price-curr"><span class="price-sym">₹</span>150</span>
+            </div>
+            <span class="disc-badge">Original Work</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://store.pothi.com/book/furkan-khan-masterpiece/" target="_blank" class="btn-buy-card btn-buy-own" style="background:linear-gradient(135deg,var(--crimson),var(--walnut))">
+              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+              Order on Pothi
+            </a>
+            <button class="btn-outline-small" onclick="toggleWishlist(null,'The Masterpiece')">
+              <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="books-grid-label">
+    <div class="section-label" style="margin-bottom:20px">Also in the Collection</div>
+  </div>
+
+  <div class="books-grid">
 
     <!-- Book 2 — Behave -->
     <div class="book-card" data-genre="mind">
@@ -1046,7 +1263,7 @@ footer { background:var(--ink); color:var(--parchment); padding:72px 48px 40px; 
           <div class="peek-title">Behave</div>
           <div class="peek-desc">Why humans do the things they do — a masterpiece of biology, neuroscience, and human behavior.</div>
           <div class="peek-actions">
-            <a href="https://amzn.in/d/04nOrd8s" target="_blank" class="peek-btn peek-buy">Buy Now</a>
+            <a href="https://amzn.in/d/03jZiRUy" target="_blank" class="peek-btn peek-buy">Buy Now</a>
             <button class="peek-btn peek-save" onclick="toggleWishlist(null,'Behave')">♡ Save</button>
           </div>
         </div>
@@ -1059,13 +1276,11 @@ footer { background:var(--ink); color:var(--parchment); padding:72px 48px 40px; 
         <div class="card-divider"></div>
         <div class="price-row">
           <div class="price-wrap">
-            <span class="price-old">₹299</span>
-            <span class="price-curr"><span class="price-sym">₹</span>111</span>
+            <span class="price-curr"><span class="price-sym">₹</span>500</span>
           </div>
-          <span class="disc-badge">63% off</span>
         </div>
         <div class="card-actions">
-          <a href="https://amzn.in/d/04nOrd8s" target="_blank" class="btn-buy-card">
+          <a href="https://amzn.in/d/03jZiRUy" target="_blank" class="btn-buy-card">
             <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
             Buy on Amazon
           </a>
@@ -1159,50 +1374,7 @@ footer { background:var(--ink); color:var(--parchment); padding:72px 48px 40px; 
       </div>
     </div>
 
-    <!-- Book 5 — The Masterpiece -->
-    <div class="book-card" data-genre="poetry">
-      <div class="book-cover-wrap">
-        <button class="wishlist-btn" onclick="toggleWishlist(this,'The Masterpiece')">
-          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </button>
-        <img src="https://raw.githubusercontent.com/furkankhab/book/main/book5.png" alt="The Masterpiece" class="book-cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="cover-placeholder cp-5" style="display:none">
-          <div class="cp-icon">✨</div>
-          <div class="cp-line"></div>
-          <div class="cp-title">The Masterpiece</div>
-          <div class="cp-author">Furkan Khan</div>
-        </div>
-        <div class="quick-peek">
-          <div class="peek-title">The Masterpiece</div>
-          <div class="peek-desc">Furkan Khan's celebrated work — a powerful exploration of ambition, artistry, and the pursuit of excellence.</div>
-          <div class="peek-actions">
-            <a href="https://store.pothi.com/book/furkan-khan-masterpiece/" target="_blank" class="peek-btn peek-buy">Buy Now</a>
-            <button class="peek-btn peek-save" onclick="toggleWishlist(null,'The Masterpiece')">♡ Save</button>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-meta"><span class="card-genre">Poetry</span><span class="card-num">No. 05</span></div>
-        <div class="book-title">The Masterpiece</div>
-        <div class="book-author">by Furkan Khan</div>
-        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(19 reviews)</span></div>
-        <div class="card-divider"></div>
-        <div class="price-row">
-          <div class="price-wrap">
-            <span class="price-curr"><span class="price-sym">₹</span>150</span>
-          </div>
-          <span class="disc-badge">Original Work</span>
-        </div>
-        <div class="card-actions">
-          <a href="https://store.pothi.com/book/furkan-khan-masterpiece/" target="_blank" class="btn-buy-card">
-            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
-            Order on Pothi
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Book 6 — Rapid Skill Acquisition -->
+    <!-- Book 5 (was 6) — Rapid Skill Acquisition -->
     <div class="book-card" data-genre="self-help">
       <div class="book-cover-wrap">
         <button class="wishlist-btn" onclick="toggleWishlist(this,'Science of Rapid Skill Acquisition')">
@@ -1219,7 +1391,7 @@ footer { background:var(--ink); color:var(--parchment); padding:72px 48px 40px; 
           <div class="peek-title">Science of Rapid Skill Acquisition</div>
           <div class="peek-desc">Evidence-based strategies to learn faster, remember more, and master any skill in record time.</div>
           <div class="peek-actions">
-            <a href="https://amzn.in/d/0b4G3UHU" target="_blank" class="peek-btn peek-buy">Buy Now</a>
+            <a href="https://dl.flipkart.com/s/z1v3DvuuuN" target="_blank" class="peek-btn peek-buy">Buy Now</a>
             <button class="peek-btn peek-save" onclick="toggleWishlist(null,'Science of Rapid Skill Acquisition')">♡ Save</button>
           </div>
         </div>
@@ -1232,13 +1404,13 @@ footer { background:var(--ink); color:var(--parchment); padding:72px 48px 40px; 
         <div class="card-divider"></div>
         <div class="price-row">
           <div class="price-wrap">
-            <span class="price-curr"><span class="price-sym">₹</span>149</span>
+            <span class="price-curr"><span class="price-sym">₹</span>169</span>
           </div>
         </div>
         <div class="card-actions">
-          <a href="https://amzn.in/d/0b4G3UHU" target="_blank" class="btn-buy-card">
+          <a href="https://dl.flipkart.com/s/z1v3DvuuuN" target="_blank" class="btn-buy-card">
             <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
-            Buy on Amazon
+            Buy on Flipkart
           </a>
         </div>
       </div>
@@ -1441,12 +1613,12 @@ footer { background:var(--ink); color:var(--parchment); padding:72px 48px 40px; 
   </div>
 </section>
 
-<!-- ─── COMMUNITY REVIEWS ─── -->
+<!-- ─── REVIEWS ─── -->
 <section class="section" id="reviews">
   <div class="section-head section-head-row">
     <div>
       <div class="section-label">From Our Readers</div>
-      <h2 class="section-title">Community Reviews</h2>
+      <h2 class="section-title">Reader Stories</h2>
       <p class="section-sub">Real thoughts from real readers.</p>
     </div>
   </div>
