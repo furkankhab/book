@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <title>MaelrixAI — The Book Store</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 * {
   margin: 0;
@@ -18,9 +18,9 @@ body {
   color: #0A0C10;
   line-height: 1.5;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-/* Minimal, clean reset */
 a {
   text-decoration: none;
   color: inherit;
@@ -33,7 +33,6 @@ button {
   font-family: inherit;
 }
 
-/* Scrollbar - subtle */
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -45,7 +44,6 @@ button {
   border-radius: 6px;
 }
 
-/* Toast Notification */
 .toast {
   position: fixed;
   bottom: 28px;
@@ -66,22 +64,25 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  white-space: nowrap;
 }
 .toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+@media (max-width: 500px) {
+  .toast { white-space: normal; max-width: 85%; text-align: center; }
+}
 
-/* Scroll to top */
 .scroll-top {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   background: white;
   border: 1px solid #E2E8F0;
-  border-radius: 40px;
+  border-radius: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,7 +92,7 @@ button {
   transition: all 0.2s ease;
   opacity: 0;
   transform: translateY(12px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   z-index: 800;
 }
 .scroll-top.visible {
@@ -104,12 +105,11 @@ button {
   border-color: #2563EB;
 }
 
-/* Announce bar */
 .announce-bar {
   background: #F8FAFC;
   border-bottom: 1px solid #E2E8F0;
   text-align: center;
-  padding: 8px 20px;
+  padding: 8px 16px;
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.3px;
@@ -120,7 +120,6 @@ button {
   font-weight: 600;
 }
 
-/* Header - clean sticky */
 header {
   position: sticky;
   top: 0;
@@ -135,29 +134,31 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
-  height: 68px;
+  padding: 0 24px;
+  height: 64px;
+  gap: 16px;
 }
 .logo-main {
   font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.3px;
   color: #0A0C10;
+  line-height: 1.2;
 }
 .logo-main span {
   color: #2563EB;
 }
 .logo-tagline {
-  font-size: 0.55rem;
-  letter-spacing: 1.2px;
+  font-size: 0.5rem;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: #64748B;
   margin-top: 2px;
 }
 .header-nav {
   display: flex;
-  gap: 32px;
+  gap: 28px;
 }
 .header-nav a {
   font-size: 0.85rem;
@@ -170,13 +171,13 @@ header {
 }
 .header-actions {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
 }
 .icon-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 40px;
+  width: 36px;
+  height: 36px;
+  border-radius: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,19 +200,17 @@ header {
 .cart-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
+  gap: 6px;
+  padding: 6px 16px;
   background: #2563EB;
   color: white;
   border-radius: 40px;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.3px;
   transition: all 0.2s;
 }
 .cart-btn:hover {
   background: #1D4ED8;
-  transform: translateY(-1px);
 }
 .cart-count {
   width: 18px;
@@ -243,7 +242,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 32px;
 }
 .mobile-nav.open {
   display: flex;
@@ -258,19 +257,18 @@ header {
   position: absolute;
   top: 24px;
   right: 24px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   background: none;
   border: none;
 }
 
-/* Hero Section */
 .hero {
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  padding: 60px 32px;
+  padding: 56px 24px;
   align-items: center;
 }
 .hero-badge {
@@ -293,11 +291,11 @@ header {
 }
 .hero-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2rem, 5vw, 3.8rem);
   font-weight: 700;
   line-height: 1.2;
   color: #0A0C10;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 .hero-title em {
   color: #2563EB;
@@ -353,6 +351,7 @@ header {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 }
 .proof-avs {
   display: flex;
@@ -389,32 +388,25 @@ header {
 }
 .hero-book-stack {
   position: relative;
-  width: 300px;
-  height: 380px;
+  width: 280px;
+  height: 360px;
 }
 .hb {
   position: absolute;
   border-radius: 12px;
   box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
   overflow: hidden;
-  transition: transform 0.3s ease;
 }
 .hb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
-.hb-1 { width: 190px; height: 270px; top: 40px; left: 60px; z-index: 3; }
-.hb-2 { width: 165px; height: 245px; top: 70px; left: 120px; z-index: 2; }
-.hb-3 { width: 155px; height: 230px; top: 90px; left: 20px; z-index: 1; }
-.hero-book-stack:hover .hb-1 { transform: translateY(-8px); }
-.hero-book-stack:hover .hb-2 { transform: translateX(8px); }
-.hero-book-stack:hover .hb-3 { transform: translateX(-6px); }
-.hfb, .hfb2 {
-  display: none;
-}
+.hb-1 { width: 180px; height: 260px; top: 40px; left: 50px; z-index: 3; }
+.hb-2 { width: 155px; height: 235px; top: 70px; left: 110px; z-index: 2; }
+.hb-3 { width: 145px; height: 220px; top: 90px; left: 15px; z-index: 1; }
 
-/* Marquee */
 .marquee-wrap {
   background: #F8FAFC;
   border-top: 1px solid #E2E8F0;
@@ -435,7 +427,7 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 0 36px;
+  padding: 0 32px;
   font-size: 0.85rem;
   font-weight: 500;
   color: #475569;
@@ -444,11 +436,10 @@ header {
   color: #2563EB;
 }
 
-/* Stats Strip */
 .stats-strip {
   background: white;
   border-bottom: 1px solid #E2E8F0;
-  padding: 32px 32px;
+  padding: 32px 24px;
 }
 .stats-inner {
   max-width: 1280px;
@@ -456,13 +447,14 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   text-align: center;
+  gap: 16px;
 }
 .stat-item {
-  padding: 12px;
+  padding: 8px;
 }
 .stat-num {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: 700;
   color: #2563EB;
   line-height: 1.2;
@@ -475,14 +467,13 @@ header {
   letter-spacing: 0.5px;
 }
 
-/* Sections */
 .section {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 64px 32px;
+  padding: 56px 24px;
 }
 .section-head {
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 .section-label {
   font-size: 0.7rem;
@@ -503,7 +494,7 @@ header {
 }
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: 600;
   color: #0A0C10;
 }
@@ -515,8 +506,8 @@ header {
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 48px;
+  gap: 10px;
+  margin-bottom: 40px;
 }
 .filter-pill {
   padding: 8px 20px;
@@ -532,12 +523,11 @@ header {
   color: white;
 }
 
-/* Own works spotlight (clean) */
 .own-works-spotlight {
   margin-bottom: 56px;
   background: #F8FAFC;
   border-radius: 24px;
-  padding: 32px;
+  padding: 24px;
   border: 1px solid #E2E8F0;
 }
 .ows-label {
@@ -550,11 +540,11 @@ header {
   background: #EFF6FF;
   padding: 5px 14px;
   border-radius: 40px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .own-works-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 .own-work-card {
@@ -566,19 +556,16 @@ header {
   overflow: hidden;
   transition: box-shadow 0.2s;
 }
-.own-work-card:hover {
-  box-shadow: 0 12px 28px -8px rgba(0,0,0,0.08);
-  border-color: #CBD5E1;
-}
 .owc-cover {
   position: relative;
   background: #F1F5F9;
-  min-height: 200px;
+  min-height: 180px;
 }
 .owc-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .owc-badge {
   position: absolute;
@@ -606,7 +593,7 @@ header {
   cursor: pointer;
 }
 .owc-body {
-  padding: 18px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -623,7 +610,7 @@ header {
 }
 .owc-title {
   font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin: 4px 0;
 }
@@ -633,6 +620,7 @@ header {
 }
 .owc-pills {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   margin: 8px 0;
 }
@@ -649,7 +637,7 @@ header {
   margin: 10px 0;
 }
 .owc-price {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #0A0C10;
 }
@@ -657,6 +645,7 @@ header {
   display: flex;
   gap: 8px;
   margin-top: 8px;
+  flex-wrap: wrap;
 }
 .btn-buy-own {
   background: #2563EB;
@@ -671,13 +660,12 @@ header {
 }
 .btn-save-sm {
   border: 1px solid #CBD5E1;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 40px;
   font-size: 0.7rem;
   background: white;
 }
 
-/* Books Grid */
 .books-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -690,11 +678,6 @@ header {
   overflow: hidden;
   transition: all 0.2s;
 }
-.book-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
-  border-color: #CBD5E1;
-}
 .book-cover-wrap {
   position: relative;
   aspect-ratio: 2/3;
@@ -705,15 +688,7 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.cover-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  background: #EFF6FF;
-  color: #1E293B;
+  display: block;
 }
 .badge-chip {
   position: absolute;
@@ -751,6 +726,7 @@ header {
   background: #EFF6FF;
   padding: 2px 8px;
   border-radius: 30px;
+  display: inline-block;
 }
 .book-title {
   font-weight: 700;
@@ -786,11 +762,7 @@ header {
   color: white;
   border-color: #2563EB;
 }
-.quick-peek {
-  display: none;
-}
 
-/* Reading Room Tabs */
 .reading-room-section {
   background: #F8FAFC;
   border-top: 1px solid #E2E8F0;
@@ -799,16 +771,17 @@ header {
 .reading-room-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 64px 32px;
+  padding: 56px 24px;
 }
 .reading-tabs {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 4px;
   border-bottom: 1px solid #E2E8F0;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 .rtab {
-  padding: 12px 24px;
+  padding: 10px 20px;
   font-weight: 600;
   color: #475569;
   border-bottom: 2px solid transparent;
@@ -827,24 +800,24 @@ header {
 .quiz-wrap, .tracker-wrap, .summarizer-wrap {
   background: white;
   border-radius: 24px;
-  padding: 32px;
+  padding: 24px;
   border: 1px solid #E2E8F0;
 }
 .quiz-question {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
 }
 .quiz-options {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 12px;
   margin: 24px 0;
 }
 .quiz-option {
   background: #F8FAFC;
   border: 1px solid #E2E8F0;
-  padding: 14px;
+  padding: 12px;
   border-radius: 16px;
   text-align: left;
   font-weight: 500;
@@ -858,8 +831,10 @@ header {
   align-items: center;
   gap: 14px;
   background: #F8FAFC;
-  padding: 16px;
+  padding: 14px;
   border-radius: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 .pi-bar {
   flex: 1;
@@ -872,6 +847,18 @@ header {
   height: 6px;
   border-radius: 10px;
 }
+.add-book-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.add-book-input {
+  flex: 1;
+  border: 1px solid #E2E8F0;
+  border-radius: 40px;
+  padding: 12px 18px;
+}
 .btn-add, .btn-summarize {
   background: #2563EB;
   color: white;
@@ -879,20 +866,50 @@ header {
   border-radius: 40px;
   font-weight: 600;
 }
-.add-book-input, .nl-input, .cf-input {
-  border: 1px solid #E2E8F0;
+.sum-select-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.sum-book-chip {
+  background: #F1F5F9;
+  padding: 6px 16px;
   border-radius: 40px;
-  padding: 12px 18px;
-  background: white;
+  font-size: 0.8rem;
+}
+.sum-book-chip.active {
+  background: #2563EB;
+  color: white;
+}
+.sum-len-btn {
+  background: #F1F5F9;
+  padding: 6px 14px;
+  border-radius: 40px;
+  margin-right: 8px;
+}
+.sum-len-btn.active {
+  background: #2563EB;
+  color: white;
+}
+.sum-output {
+  margin-top: 20px;
+  background: #F8FAFC;
+  padding: 20px;
+  border-radius: 20px;
+  display: none;
+}
+.sum-output.visible {
+  display: block;
 }
 .quote-section {
   background: white;
   text-align: center;
-  padding: 80px 32px;
+  padding: 64px 24px;
 }
 .quote-text {
   font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #1E293B;
   max-width: 700px;
   margin: 0 auto;
@@ -900,35 +917,57 @@ header {
 }
 .review-section {
   background: white;
-  padding: 64px 32px;
+  padding: 56px 24px;
 }
 .review-form-wrap {
   background: #F8FAFC;
   border-radius: 28px;
-  padding: 32px;
+  padding: 28px;
   max-width: 560px;
+  margin: 0 auto;
+}
+.star-picker {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
 }
 .star-btn {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #CBD5E1;
   transition: color 0.1s;
 }
 .star-btn.lit {
   color: #F59E0B;
 }
+.cf-input {
+  width: 100%;
+  border: 1px solid #E2E8F0;
+  border-radius: 40px;
+  padding: 12px 18px;
+  margin-bottom: 12px;
+  background: white;
+}
 .newsletter-section {
   background: white;
   border-top: 1px solid #E2E8F0;
-  padding: 64px 32px;
+  padding: 56px 24px;
+  text-align: center;
 }
 .nl-form {
   display: flex;
   gap: 12px;
   justify-content: center;
+  flex-wrap: wrap;
+}
+.nl-input {
+  min-width: 220px;
+  border: 1px solid #E2E8F0;
+  border-radius: 40px;
+  padding: 12px 18px;
 }
 .author-section {
   background: #F8FAFC;
-  padding: 64px 32px;
+  padding: 56px 24px;
 }
 .author-inner {
   max-width: 1000px;
@@ -936,22 +975,24 @@ header {
   display: flex;
   gap: 48px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .author-photo-wrap {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   background: #E2E8F0;
   overflow: hidden;
+  flex-shrink: 0;
 }
 .author-name {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
 }
 .contact-section {
   background: white;
-  padding: 64px 32px;
+  padding: 56px 24px;
 }
 .contact-inner {
   max-width: 1000px;
@@ -972,11 +1013,11 @@ header {
 footer {
   background: #F8FAFC;
   border-top: 1px solid #E2E8F0;
-  padding: 48px 32px;
+  padding: 48px 24px;
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -986,38 +1027,38 @@ footer {
   .hero-right { display: none; }
   .header-nav { display: none; }
   .ham-btn { display: flex; align-items: center; justify-content: center; }
-  .stats-inner { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
   .own-works-grid { grid-template-columns: 1fr; }
-  .books-grid { grid-template-columns: repeat(2, 1fr); }
-  .contact-inner { grid-template-columns: 1fr; }
-  .author-inner { flex-direction: column; text-align: center; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .books-grid { gap: 20px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 32px; }
+  .author-inner { flex-direction: column; text-align: center; justify-content: center; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
 }
 @media (max-width: 550px) {
+  .section, .reading-room-inner, .stats-strip, .quote-section, .review-section, .newsletter-section, .author-section, .contact-section, footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .header-inner { padding: 0 12px; }
   .books-grid { grid-template-columns: 1fr; }
   .quiz-options { grid-template-columns: 1fr; }
+  .own-work-card { grid-template-columns: 100px 1fr; }
+  .owc-title { font-size: 1rem; }
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-ctas .btn-primary, .hero-ctas .btn-outline { width: 100%; justify-content: center; }
+  .nl-form { flex-direction: column; align-items: stretch; }
+  .nl-input { width: 100%; }
+  .rtab { padding: 8px 12px; font-size: 0.7rem; }
 }
 </style>
 </head>
 <body>
 <div class="toast" id="toast"><span id="toast-icon">📘</span><span id="toast-msg"></span></div>
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<nav class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
-  <a href="#books" onclick="closeMobileNav()">Catalogue</a>
-  <a href="#reading-room" onclick="closeMobileNav()">Reading Room</a>
-  <a href="#author" onclick="closeMobileNav()">Author</a>
-  <a href="#contact" onclick="closeMobileNav()">Contact</a>
-</nav>
-<div class="announce-bar">Free delivery on orders above <span>₹500</span> · Original works by Furkan Khan exclusively on Pothi</div>
-<header>
-  <div class="header-inner">
-    <div class="logo-wrap"><div class="logo-main">Maelrix<span>AI</span></div><div class="logo-tagline">Every page begins a journey</div></div>
-    <nav class="header-nav"><a href="#books">Catalogue</a><a href="#reading-room">Reading Room</a><a href="#author">Author</a><a href="#contact">Contact</a></nav>
-    <div class="header-actions"><button class="icon-btn" onclick="showToast('🔍','Search coming soon!')"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button><button class="icon-btn" onclick="showToast('❤️','Wishlist coming soon!')"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button><button class="cart-btn" onclick="showToast('🛒','Cart feature coming soon!')"><span>Cart</span><div class="cart-count">0</div></button><button class="ham-btn" onclick="document.getElementById('mobileNav').classList.add('open')">☰</button></div>
-  </div>
-</header>
-<section class="hero"><div class="hero-left"><div class="hero-badge"><div class="badge-dot"></div>Curated by intelligence</div><h1 class="hero-title">Books That<br><em>Awaken</em><br><span class="hl2">the Curious Mind</span></h1><p class="hero-desc">A sanctuary for seekers — handpicked titles to challenge thinking and transform perspective.</p><div class="hero-ctas"><a href="#books" class="btn-primary">Browse Collection</a><a href="#reading-room" class="btn-outline">Find Your Next Book →</a></div><div class="hero-proof"><div class="proof-avs"><div class="proof-av">FK</div><div class="proof-av">AR</div><div class="proof-av">SM</div><div class="proof-av">+</div></div><div class="proof-txt"><div class="proof-stars">★★★★★</div><strong>Trusted by readers</strong> across India</div></div></div><div class="hero-right"><div class="hero-book-stack"><div class="hb hb-3"><img src="https://cdn.jsdelivr.net/gh/furkankhab/book@main/book4.png" alt="book"></div><div class="hb hb-2"><img src="https://cdn.jsdelivr.net/gh/furkankhab/book@main/book3.png" alt="book"></div><div class="hb hb-1"><img src="https://raw.githubusercontent.com/furkankhab/book/main/book1.png" alt="book"></div></div></div></section>
+<nav class="mobile-nav" id="mobileNav"><button class="mobile-nav-close" onclick="closeMobileNav()">✕</button><a href="#books" onclick="closeMobileNav()">Catalogue</a><a href="#reading-room" onclick="closeMobileNav()">Reading Room</a><a href="#author" onclick="closeMobileNav()">Author</a><a href="#contact" onclick="closeMobileNav()">Contact</a></nav>
+<div class="announce-bar">Free delivery on orders above <span>₹500</span> · Original works by Furkan Khan</div>
+<header><div class="header-inner"><div class="logo-wrap"><div class="logo-main">Maelrix<span>AI</span></div><div class="logo-tagline">Every page begins a journey</div></div><nav class="header-nav"><a href="#books">Catalogue</a><a href="#reading-room">Reading Room</a><a href="#author">Author</a><a href="#contact">Contact</a></nav><div class="header-actions"><button class="icon-btn" onclick="showToast('🔍','Search soon')"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button><button class="icon-btn" onclick="showToast('❤️','Wishlist')"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button><button class="cart-btn" onclick="showToast('🛒','Cart soon')"><span>Cart</span><div class="cart-count">0</div></button><button class="ham-btn" onclick="document.getElementById('mobileNav').classList.add('open')">☰</button></div></div></header>
+<section class="hero"><div class="hero-left"><div class="hero-badge"><div class="badge-dot"></div>Curated by intelligence</div><h1 class="hero-title">Books That<br><em>Awaken</em><br><span class="hl2">the Curious Mind</span></h1><p class="hero-desc">A sanctuary for seekers — handpicked titles to challenge thinking and transform perspective.</p><div class="hero-ctas"><a href="#books" class="btn-primary">Browse Collection</a><a href="#reading-room" class="btn-outline">Find Next Book →</a></div><div class="hero-proof"><div class="proof-avs"><div class="proof-av">FK</div><div class="proof-av">AR</div><div class="proof-av">SM</div><div class="proof-av">+</div></div><div class="proof-txt"><div class="proof-stars">★★★★★</div><strong>Trusted by readers</strong> across India</div></div></div><div class="hero-right"><div class="hero-book-stack"><div class="hb hb-3"><img src="https://cdn.jsdelivr.net/gh/furkankhab/book@main/book4.png" alt="book"></div><div class="hb hb-2"><img src="https://cdn.jsdelivr.net/gh/furkankhab/book@main/book3.png" alt="book"></div><div class="hb hb-1"><img src="https://raw.githubusercontent.com/furkankhab/book/main/book1.png" alt="book"></div></div></div></section>
 <div class="marquee-wrap"><div class="marquee-inner"><span class="marquee-item">Small Turnings <span class="msep">◆</span></span><span class="marquee-item">Behave <span class="msep">◆</span></span><span class="marquee-item">Rich Dad Poor Dad <span class="msep">◆</span></span><span class="marquee-item">Psychology of Money <span class="msep">◆</span></span><span class="marquee-item">The Masterpiece <span class="msep">◆</span></span><span class="marquee-item">Science of Rapid Skill <span class="msep">◆</span></span></div></div>
 <div class="stats-strip"><div class="stats-inner"><div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">Titles</div></div><div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Original Authors</div></div><div class="stat-item"><div class="stat-num">₹111</div><div class="stat-label">Starting Price</div></div><div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Authentic</div></div></div></div>
 <section class="section" id="books"><div class="section-head"><div class="section-label">The Collection</div><h2 class="section-title">Our Books</h2><p class="section-sub">Six titles, each chosen to move you forward.</p></div><div class="filter-bar"><button class="filter-pill active" data-filter="all">All</button><button class="filter-pill" data-filter="self-help">Self-Help</button><button class="filter-pill" data-filter="finance">Finance</button><button class="filter-pill" data-filter="poetry">Poetry</button><button class="filter-pill" data-filter="mind">Mind & Science</button></div>
@@ -1039,20 +1080,20 @@ footer {
 <script>
 function showToast(icon,msg){let t=document.getElementById('toast');document.getElementById('toast-icon').textContent=icon;document.getElementById('toast-msg').textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
 function closeMobileNav(){document.getElementById('mobileNav').classList.remove('open');}
-function toggleWishlist(btn,title){if(btn){btn.classList.toggle('active');let added=btn.classList.contains('active');showToast(added?'❤️':'🤍',added?`${title} saved`:`${title} removed`);}else showToast('❤️',`${title} saved!`);}
+function toggleWishlist(btn,title){if(btn){btn.classList.toggle('active');showToast(btn.classList.contains('active')?'❤️':'🤍',`${title} ${btn.classList.contains('active')?'saved':'removed'}`);}else showToast('❤️',`${title} saved!`);}
 document.querySelectorAll('.filter-pill').forEach(p=>p.addEventListener('click',function(){document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));this.classList.add('active');let f=this.dataset.filter;document.querySelectorAll('.book-card').forEach(c=>{if(f==='all'||c.dataset.genre===f)c.style.display='';else c.style.display='none';});}));
 function switchTab(btn,id){document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.rtab-content').forEach(c=>c.classList.remove('active'));btn.classList.add('active');document.getElementById(id).classList.add('active');}
 let quizAnswers={};
 function selectOpt(btn,key,val){let parent=btn.closest('.quiz-options');parent.querySelectorAll('.quiz-option').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');quizAnswers[key]=val;}
 function nextQuiz(step){document.getElementById('q-step-'+step).classList.remove('active');document.getElementById('q-step-'+(step+1)).classList.add('active');}
 function prevQuiz(step){document.getElementById('q-step-'+step).classList.remove('active');document.getElementById('q-step-'+(step-1)).classList.add('active');}
-function showQuizResult(){document.getElementById('q-step-3').classList.remove('active');document.getElementById('q-result').classList.add('active');let mood=quizAnswers.mood||'transform';let recsMap={transform:[{t:'Small Turnings',a:'Furkan Khan'},{t:'Science of Rapid Skill Acquisition',a:'Peter Hollins'},{t:'Rich Dad Poor Dad',a:'Kiyosaki'}],understand:[{t:'Behave',a:'Sapolsky'},{t:'Psychology of Money',a:'Housel'}],wealth:[{t:'Rich Dad Poor Dad'},{t:'Psychology of Money'}],feel:[{t:'Small Turnings'},{t:'The Masterpiece'}]};let recs=recsMap[mood];document.getElementById('quiz-recs').innerHTML=recs.map(r=>`<div class="qrc"><div class="qrc-title">${r.t}</div><div>${r.a||''}</div></div>`).join('');}
+function showQuizResult(){document.getElementById('q-step-3').classList.remove('active');document.getElementById('q-result').classList.add('active');let mood=quizAnswers.mood||'transform';let recsMap={transform:[{t:'Small Turnings'},{t:'Science of Rapid Skill Acquisition'}],understand:[{t:'Behave'},{t:'Psychology of Money'}],wealth:[{t:'Rich Dad Poor Dad'},{t:'Psychology of Money'}],feel:[{t:'Small Turnings'},{t:'The Masterpiece'}]};let recs=recsMap[mood];document.getElementById('quiz-recs').innerHTML=recs.map(r=>`<div class="qrc"><div class="qrc-title">${r.t}</div></div>`).join('');}
 function retakeQuiz(){document.getElementById('q-result').classList.remove('active');document.getElementById('q-step-1').classList.add('active');Object.keys(quizAnswers).forEach(k=>delete quizAnswers[k]);}
-function addBook(){let inp=document.getElementById('add-book-input');if(inp.value.trim()){showToast('📚',`${inp.value.trim()} added to tracker`);inp.value='';}}
+function addBook(){let inp=document.getElementById('add-book-input');if(inp.value.trim()){showToast('📚',`${inp.value.trim()} added`);inp.value='';}}
 let currentBook='Small Turnings',currentLen='brief';
 function selectSumBook(btn,book){document.querySelectorAll('.sum-book-chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentBook=book;}
 function selectLen(btn,len){document.querySelectorAll('.sum-len-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentLen=len;}
-function generateSummary(){let out=document.getElementById('sum-output');out.innerHTML='<div>✨ Generating summary...</div>';out.classList.add('visible');setTimeout(()=>{let s={brief:'Insightful overview focused on core ideas.',detailed:'Deep dive into themes and practical wisdom.'};out.innerHTML=`<div><strong>${currentBook}</strong><p>${s[currentLen]||'Key insights: timeless principles for growth.'}</p></div>`;},800);}
+function generateSummary(){let out=document.getElementById('sum-output');out.innerHTML='<div>✨ Generating summary...</div>';out.classList.add('visible');setTimeout(()=>{let text=currentLen==='brief'?'Insightful overview of core themes.':currentLen==='detailed'?'Deep analysis of characters and narrative.':'Key principles and practical lessons.';out.innerHTML=`<div><strong>${currentBook}</strong><p>${text}</p></div>`;},700);}
 let currentRating=0;
 function setRating(n){currentRating=n;document.querySelectorAll('.star-btn').forEach((btn,i)=>{btn.classList.toggle('lit',i<n);});}
 function submitReview(){let n=document.getElementById('rev-name').value.trim();if(!n)return showToast('⚠️','Name required');showToast('🌟','Thank you for your review!');document.getElementById('rev-name').value='';document.getElementById('rev-book').value='';document.getElementById('rev-text').value='';setRating(0);}
